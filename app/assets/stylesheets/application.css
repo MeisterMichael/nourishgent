@@ -10,7 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree ./../javascripts/theme
+ *= require theme/bootstrap/css/bootstrap.css
+ *= require theme/css/owl.carousel.css
+ *= require theme/css/owl.theme.css
+ *= require theme/css/style.css
+ *= require theme/css/skin.css
  *= require_tree ./custom
  *= require_self
  */
