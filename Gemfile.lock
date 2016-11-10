@@ -282,6 +282,7 @@ GEM
     minitest (5.9.0)
     multi_json (1.12.1)
     netrc (0.11.0)
+    newrelic_rpm (3.14.0.305)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -395,6 +396,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  newrelic_rpm
   omniauth
   pg
   rails (= 4.2.3)
