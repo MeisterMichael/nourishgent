@@ -1,0 +1,43 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Getting Started
+* fork a swell_media_starter repo
+* update database.yml db config & ENV files with pertinent config options
+* install gems: $ bundle install
+* generate swell_media migrations
+	$ rails generate swell_media:migrations
+* build database
+	$ rake db:setup
+* run rails app, go to http://localhost:3000/
+
+Optional
+* Configure Carrierwave S3 parameters, for asset management.
+	AMZN_ASOC_KEY, AMZN_ASOC_SECRET, FOG_DIRECTORY (bucket, e.g. 'shopswell-com-dev'), ASSET_HOST (if using cloudfront or similar)
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.

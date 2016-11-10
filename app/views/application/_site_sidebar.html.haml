@@ -1,0 +1,150 @@
+.site-sidebar
+	%section.widget.widget_search
+		%form.search-form
+			.form-group
+				%label.sr-only{:for => "search"} Search
+				%input.form-control.search-field{:placeholder => "Search...", :type => "text"}/
+			/ .form-group
+			%button.btn.btn-default.search-submit{:type => "submit"}
+				%i.fa.fa-search
+		/ .search-form
+	/ .widget_search
+	%section.widget.astrif_widget_about
+		%h2.widget-title
+			%span About
+		.about-author-container
+			.author-avatar
+				%img{:alt => "astrif fifth", :src => image_path("theme/img/astrif-about.jpg")}/
+			.author-info
+				%p Hi, glad to know you were here. I'm Astrif, newbie food blogger. I like to go anywhere to hunting some food and share with other. About taste, benefit, and where you can findout a good place to eat.
+			.author-signature{:style => "background-image: url('#{image_path("theme/img/astrif-signature.png")}');"}
+		/ .about-author-container
+	/ .astrif_widget_about
+	%section.widget.astrif_widget_follow_me
+		%h2.widget-title
+			%span Follow me
+		.follow-me
+			%ul.social-icon.social-icon-color
+				%li
+					%a.icon-twitter{:href => ""}
+						%i.fa.fa-twitter
+				%li
+					%a.icon-facebook{:href => ""}
+						%i.fa.fa-facebook
+				%li
+					%a.icon-instagram{:href => ""}
+						%i.fa.fa-instagram
+				%li
+					%a.icon-pinterest{:href => ""}
+						%i.fa.fa-pinterest
+				%li
+					%a.icon-youtube{:href => ""}
+						%i.fa.fa-youtube-play
+		/ .follow-me
+	/ .astrif_widget_follow_me
+	%section.widget.astrif_widget_popular_entries
+		%h2.widget-title
+			%span Popular Posts
+		%ul
+			%li
+				%a.popular-entry-thumbnail{:href => "single.html"}
+					%img{:alt => "10 Easy Breakfast that can try in home", :src => image_path("theme/img/astrif-popular-01.jpg")}/
+				%span.popular-entry-title
+					%a.popular-entry-title-link{:href => "single.html", :rel => "bookmark"} 10 Easy Breakfast that can try in home
+					%span.popular-entry-date August 17, 2016
+			%li
+				%a.popular-entry-thumbnail{:href => "single.html"}
+					%img{:alt => "My Daily healthy food", :src => image_path("theme/img/astrif-popular-02.jpg")}/
+				%span.popular-entry-title
+					%a.popular-entry-title-link{:href => "single.html", :rel => "bookmark"} My Daily healthy food
+					%span.popular-entry-date July 23, 2016
+			%li
+				%a.popular-entry-thumbnail{:href => "single.html"}
+					%img{:alt => "Not drink a coke is good", :src => image_path("theme/img/astrif-popular-03.jpg")}/
+				%span.popular-entry-title
+					%a.popular-entry-title-link{:href => "single.html", :rel => "bookmark"} Not drink a coke is better, i think
+					%span.popular-entry-date May 8, 2016
+			%li
+				%a.popular-entry-thumbnail{:href => "single.html"}
+					%img{:alt => "This pancake as sweet as you", :src => image_path("theme/img/astrif-popular-04.jpg")}/
+				%span.popular-entry-title
+					%a.popular-entry-title-link{:href => "single.html", :rel => "bookmark"} This pancake as sweet as you :')
+					%span.popular-entry-date January 27, 2016
+			%li
+				%a.popular-entry-thumbnail{:href => "single.html"}
+					%img{:alt => "My daily drink in the morn", :src => image_path("theme/img/astrif-popular-05.jpg")}/
+				%span.popular-entry-title
+					%a.popular-entry-title-link{:href => "single.html", :rel => "bookmark"} My daily drink in the morn
+					%span.popular-entry-date March 11, 2015
+	/ .astrif_widget_popular_entries
+	%section.widget.widget_text
+		%h2.widget-title
+			%span Advertisement
+		.textwidget
+			%a{:href => "index.html"}
+				%img{:alt => "buy astrif now", :src => image_path("theme/img/astrif-sidebar-banner.jpg")}/
+	/ .astrif_widget_text
+	%section.widget.widget_recent_entries
+		%h2.widget-title
+			%span Recent Posts
+		%ul
+			%li
+				%a{:href => "single.html"} Best beef burger in this city, I had met
+				%span.post-date August 14, 2016
+			%li
+				%a{:href => "single.html"} Fruit salad made from Black Autumn Royal grapes
+				%span.post-date September 25, 2016
+			%li
+				%a{:href => "single.html"} How to make nasi goreng seafood pedas
+				%span.post-date June 16, 2016
+			%li
+				%a{:href => "single.html"} All you need is gelato, yeey!
+				%span.post-date May 8, 2016
+			%li
+				%a{:href => "single.html"} Healthy breakfast for cute girl
+				%span.post-date April 27, 2016
+	/ .widget_recent_entries
+	%section.widget.widget_categories
+		%h2.widget-title
+			%span Categories
+		%ul
+			%li
+				%a{:href => "category.html"} Appetizer
+			%li
+				%a{:href => "category.html"} Cook
+			%li
+				%a{:href => "category.html"} Dessert
+			%li
+				%a{:href => "category.html"} Food
+			%li
+				%a{:href => "category.html"} Healthy
+			%li
+				%a{:href => "category.html"} Tips
+	/ .widget_categories
+	%section.widget.widget_tag_cloud
+		%h2.widget-title
+			%span Tags
+		.tagcloud
+			%a{:href => "#"}
+				food
+				%span 52
+			%a{:href => "#"}
+				dessert
+				%span 86
+			%a{:href => "#"}
+				thoughts
+				%span 13
+			%a{:href => "#"}
+				inspiring
+				%span 7
+			%a{:href => "#"}
+				tips
+				%span 64
+			%a{:href => "#"}
+				cook
+				%span 9
+			%a{:href => "#"}
+				healthy
+				%span 29
+	/ .widget_tag_cloud
+/ .site-sidebar

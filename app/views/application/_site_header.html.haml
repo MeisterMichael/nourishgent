@@ -1,0 +1,89 @@
+/ site branding
+.site-branding
+	.container
+		.row
+			.col-md-3
+				%ul.social-icon
+					%li
+						%a.icon-twitter{:href => ""}
+							%i.fa.fa-twitter
+					%li
+						%a.icon-facebook{:href => ""}
+							%i.fa.fa-facebook
+					%li
+						%a.icon-instagram{:href => ""}
+							%i.fa.fa-instagram
+					%li
+						%a.icon-pinterest{:href => ""}
+							%i.fa.fa-pinterest
+					%li
+						%a.icon-youtube{:href => ""}
+							%i.fa.fa-youtube-play
+			/ .col-md-3
+			.col-md-6
+				/ <h1 class="site-title"><a href="index.html" rel="home">Astrif.</a></h1>
+				%h1.site-title.title-image
+					%a{:href => swell_media.root_path(), :rel => "home"}
+						NourishGent
+
+				%p.site-description - Life, Health and Growth -
+			/ .col-md-6
+			.col-md-3
+				%form.search-form
+					.form-group
+						%label.sr-only{:for => "search"} Search
+						%input.form-control.search-field{:placeholder => "Search...", :type => "text"}/
+					/ .form-group
+					%button.btn.btn-default.search-submit{:type => "submit"}
+						%i.fa.fa-search
+				/ .search-form
+			/ .col-md-3
+		/ .row
+	/ .container
+/ .site-branding
+/ main navigation
+.site-navigation-sticky-wrapper
+	%header#masthead.site-header{:role => "banner"}
+		%nav#site-navigation.main-navigation{:role => "navigation"}
+			.container
+				.row
+					.col-md-12
+						%button.menu-toggle{"aria-controls" => "primary-menu", "aria-expanded" => "false"}
+							%i.fa.fa-bars
+							%span.sr-only Primary Menu
+						.menu-container
+							%ul#primary-menu.menu.nav-menu{"aria-expanded" => "false"}
+								%li.menu-item.current-menu-item
+									%a{:href => swell_media.root_path() } Home
+								%li.menu-item.menu-item-has-children{"aria-haspopup" => "true"}
+									%a{:href => "#"} Features
+									%ul.sub-menu
+										%li.menu-item
+											%a{:href => "single.html"} Single Post
+										%li.menu-item
+											%a{:href => "single-sidebar.html"} Single Post With Sidebar
+										%li.menu-item
+											%a{:href => "page-fullwidth.html"} Page Full Width
+										%li.menu-item
+											%a{:href => "page-sidebar.html"} Page With Sidebar
+										%li.menu-item
+											%a{:href => "shortcodes.html"} Shortcodes
+										%li.menu-item
+											%a{:href => "typography.html"} Typography
+										%li.menu-item
+											%a{:href => "404.html"} Not Found
+								%li.menu-item
+									%a{:href => "category.html"} Food
+								%li.menu-item
+									%a{:href => "category.html"} Cook
+								%li.menu-item
+									%a{:href => "about.html"} About Me
+								%li.menu-item
+									%a{:href => "contact.html"} Contact
+						/ .menu-container
+					/ .col-md-12
+				/ .row
+			/ .container
+		/ #site-navigation
+	/ #masthead
+/ .site-header-affix-wrapper

@@ -1,0 +1,64 @@
+
+/ site-footer
+%footer#colophon.site-footer{:role => "contentinfo"}
+	/ footer subscribe
+	.footer-subscribe
+		.container
+			.row
+				.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2
+					%h3.subscribe-title Subscribe
+					%p Subscribe your e-mail address and get fresh stuff through email notifications.
+					%form.form-inline
+						.form-group
+							%input.form-control{:placeholder => "Your email address", :type => "email"}/
+						%button.btn.btn-default{:type => "submit"} Sign up
+					/ .form-inline
+				/ .col-##
+			/ .row
+		/ .container
+	/ .footer-subscribe
+	/ footer instagram
+	.footer-instagram
+		.instagram-title
+			%h3
+				insta
+				%i.fa.fa-instagram
+				gram
+			%span.instagram-subtitle Know me better
+		.instagram-widget
+			%ul
+				%li
+					%a{:href => ""}
+						%img{:alt => "", :src => image_path("theme/img/astrif-post-entry-02.jpg")}/
+				%li
+					%a{:href => ""}
+						%img{:alt => "", :src => image_path("theme/img/astrif-post-entry-03.jpg")}/
+				%li
+					%a{:href => ""}
+						%img{:alt => "", :src => image_path("theme/img/astrif-post-entry-04.jpg")}/
+				%li
+					%a{:href => ""}
+						%img{:alt => "", :src => image_path("theme/img/astrif-post-entry-05.jpg")}/
+				%li
+					%a{:href => ""}
+						%img{:alt => "", :src => image_path("theme/img/astrif-post-entry-06.jpg")}/
+				%li
+					%a{:href => ""}
+						%img{:alt => "", :src => image_path("theme/img/astrif-post-entry-07.jpg")}/
+			%p.instagram-follow
+				%a.btn.btn-default{:href => "http://instagram.com/templateninja", :target => "_blank"} @templateninja
+	/ .footer-instagram
+/ #site-footer
+/ copyright
+%section#copyright.copyright
+	.container
+		.row
+			.col-sm-12
+				Copyright © 2016
+				= succeed "." do
+					%a{:href => "http://templateninja.net", :target => "_blank"}
+						%strong Astrif
+			/ .col-sm-6
+		/ .row
+	/ .container
+/ #copyright

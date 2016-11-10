@@ -1,0 +1,302 @@
+- cache( @media ) do
+	.container
+		.row
+			/ article
+			.col-md-8.col-md-offset-2
+				.site-entry
+					%article.post.format-standard.hentry
+						.entry-header
+							%h1.entry-title= @media.title
+							.entry-meta
+								%span.posted-on
+									%a{:href => "single.html", :rel => "bookmark"}
+										%time.entry-date{:datetime => @media.publish_at.strftime('%B %e, %Y')}=@media.publish_at.strftime('%B %e, %Y')
+								/ .posted-on
+								-# %span.entry-comment
+									%span.comment-link
+										%a{:href => "#comments"}= pluralize @media.cached_comment_count, 'Comments'
+								/ .entry-cat
+								- if @media.category.present?
+									%span.entry-cat
+										%span.cat-link
+											%a{:href => "category.html"}=@media.category.name.upcase
+								/ .entry-cat
+								-# %span.entry-like
+									%a{:href => ""}
+										%i.fa.fa-heart-o
+										42
+							/ .entry-meta
+						/ .entry-header
+						- if (featured_image = (@media.cover_path || @media.avatar)).present?
+							.entry-featured-image
+								%img{:alt => @media.avatar_caption || @avatar.title, :src => featured_image}/
+							/ .entry-featured-image
+						.entry-content
+							= raw @media.content
+						/ .entry-content
+						%footer.entry-footer
+							- if @media.tags.present?
+								%span.tags-links
+									- @media.tags.each do |tag|
+										%a{:href => "#"}=tag
+								/ .tags-links
+							%span.share-links
+								%span Share this
+								%a.icon-facebook{:href => ""}
+									%i.fa.fa-facebook
+									Facebook
+								%a.icon-twitter{:href => ""}
+									%i.fa.fa-twitter
+									Twitter
+								%a.icon-google-plus{:href => ""}
+									%i.fa.fa-google-plus
+									Google+
+								%a.icon-pinterest{:href => ""}
+									%i.fa.fa-pinterest
+									Pinterest
+								%a.icon-linkedin{:href => ""}
+									%i.fa.fa-linkedin
+									LinkedIn
+							/ .share-links
+						/ .entry-footer
+					/ .post
+					%nav.navigation.post-navigation{:role => "navigation"}
+						%h2.screen-reader-text Post navigation
+						.nav-links
+							.nav-previous
+								%a.image-link{:href => "#"}
+									%img{:src => image_path( "theme/img/astrif-post-entry-02.jpg" ) }/
+								%span Previous Post
+								%a.prev-link{:href => "#", :rel => "prev"} Healthy Breakfast For Cute Girl
+							.nav-next
+								%a.image-link{:href => "#"}
+									%img{:src => image_path( "theme/img/astrif-post-entry-07.jpg" ) }/
+								%span Next Post
+								%a.next-link{:href => "#", :rel => "next"} Gelato in 'omah gelato' will punch you hard!
+					/ .navigation
+					/ author bio
+					.section-title
+						%h3 Written by
+					.entry-author-bio
+						.author-bio-avatar
+							%img.avatar{:alt => "author bio", :src => @media.user.avatar_url }/
+						/ .author-bio-avatar
+						.author-bio-description
+							%h4= @media.user.full_name || @media.user.name
+							%p= @media.user.bio || @media.user.short_bio
+							%ul.social-icon
+								%li
+									%a.icon-facebook{:href => "#", :target => "_blank"}
+										%i.fa.fa-facebook
+								%li
+									%a.icon-twitter{:href => "#", :target => "_blank"}
+										%i.fa.fa-twitter
+								%li
+									%a.icon-instagram{:href => "#", :target => "_blank"}
+										%i.fa.fa-instagram
+								%li
+									%a.icon-youtube{:href => "#", :target => "_blank"}
+										%i.fa.fa-youtube-play
+								%li
+									%a.icon-pinterest{:href => "#", :target => "_blank"}
+										%i.fa.fa-pinterest
+						/ .author-bio-description
+					/ entry-author-bio
+					.related-posts
+						.section-title
+							%h3 You May Also Like
+						.row
+							.col-sm-4
+								.post-container
+									.post-thumbnail
+										%a{:href => "#"}
+											%img{:src => image_path( "theme/img/astrif-post-entry-02.jpg")}/
+									/ .post-thumbnail
+									%h3.post-title
+										%a{:href => "#"} What I Wore Today
+									%span.post-meta
+										%a{:href => "#"} Okt 09, 2016
+								/ .post-container
+							/ .col-md-3
+							.col-sm-4
+								.post-container
+									.post-thumbnail
+										%a{:href => "#"}
+											%img{:src => image_path( "theme/img/astrif-post-entry-04.jpg")}/
+									/ .post-thumbnail
+									%h3.post-title
+										%a{:href => "#"} 10 comfy swimsuit in this month
+									%span.post-meta
+										%a{:href => "#"} Aug 14, 2016
+								/ .post-container
+							/ .col-md-3
+							.col-sm-4
+								.post-container
+									.post-thumbnail
+										%a{:href => "#"}
+											%img{:src => image_path( "theme/img/astrif-post-entry-05.jpg")}/
+									/ .post-thumbnail
+									%h3.post-title
+										%a{:href => "#"} 7 sweet hat for hangout that you should know
+									%span.post-meta
+										%a{:href => "#"} Aug 02, 2016
+								/ .post-container
+							/ .col-md-3
+						/ .row
+					/ .related-posts
+					#comments.comments-area
+						.section-title
+							%h3 4 Comments
+						%nav#comment-nav-above.navigation.comment-navigation{:role => "navigation"}
+							%h2.screen-reader-text Comment navigation
+							.nav-links
+								.nav-previous
+									%a{:href => "#comments"} Older Comments
+								.nav-next
+									%a{:href => "#comments"} Newer Comments
+							/ .nav-links
+						/ #comment-nav-above
+						%ol.comment-list
+							%li.comment.even.parent
+								%article.comment-body
+									%footer.comment-meta
+										.comment-author.vcard
+											%img.avatar{:alt => "", :src => image_path( "theme/img/astrif-comment-author-01.jpg")}/
+											%span.fn Jessica
+										/ .comment-author
+										.comment-metadata
+											%a{:href => "#"}
+												%time{:datetime => "2016-05-09T00:51:13+00:00"} May 9, 2016 at 11:21 am
+										/ .comment-metadata
+									/ .comment-meta
+									.comment-content
+										%p Nowadays, a family is simply a network of people who care for each other. It can contain hundreds or two. You can be born into one or build your own.
+									/ .comment-content
+									.reply
+										%a.comment-reply-link{:href => "#respond", :rel => "nofollow"} Reply
+								/ .comment-body
+								%ol.children
+									%li.comment.even.parent
+										%article.comment-body
+											%footer.comment-meta
+												.comment-author.vcard
+													%img.avatar{:alt => "", :src => image_path("theme/img/astrif-comment-author-02.jpg")}/
+													%span.fn Jane Doe
+												/ .comment-author
+												.comment-metadata
+													%a{:href => "#"}
+														%time{:datetime => "2016-05-09T00:51:13+00:00"} May 9, 2016 at 12:51 am
+												/ .comment-metadata
+											/ .comment-meta
+											.comment-content
+												%p Nowadays, a family is simply a network of people who care for each other. It can contain hundreds or two. You can be born into one or build your own.
+											/ .comment-content
+											.reply
+												%a.comment-reply-link{:href => "#respond", :rel => "nofollow"} Reply
+										/ .comment-body
+										%ol.children
+											%li.comment.even.parent
+												%article.comment-body
+													%footer.comment-meta
+														.comment-author.vcard
+															%img.avatar{:alt => "", :src => image_path("theme/img/astrif-comment-author-03.jpg")}/
+															%span.fn Diana Brown
+														/ .comment-author
+														.comment-metadata
+															%a{:href => "#"}
+																%time{:datetime => "2016-05-09T00:51:13+00:00"} May 9, 2016 at 12:51 am
+														/ .comment-metadata
+													/ .comment-meta
+													.comment-content
+														%p Nowadays, a family is simply a network of people who care for each other. It can contain hundreds or two. You can be born into one or build your own.
+													/ .comment-content
+													.reply
+														%a.comment-reply-link{:href => "#respond", :rel => "nofollow"} Reply
+												/ .comment-body
+												%ol.children
+													%li.comment.even.parent
+														%article.comment-body
+															%footer.comment-meta
+																.comment-author.vcard
+																	%img.avatar{:alt => "", :src => image_path("theme/img/astrif-comment-author-04.jpg")}/
+																	%span.fn Briana Smith
+																/ .comment-author
+																.comment-metadata
+																	%a{:href => "#"}
+																		%time{:datetime => "2016-05-09T00:51:13+00:00"} May 9, 2016 at 12:51 am
+																/ .comment-metadata
+															/ .comment-meta
+															.comment-content
+																%p Nowadays, a family is simply a network of people who care for each other. It can contain hundreds or two. You can be born into one or build your own.
+															/ .comment-content
+															.reply
+																%a.comment-reply-link{:href => "#respond", :rel => "nofollow"} Reply
+														/ .comment-body
+						/ .comment-list
+						%nav#comment-nav-below.navigation.comment-navigation{:role => "navigation"}
+							%h2.screen-reader-text Comment navigation
+							.nav-links
+								.nav-previous
+									%a{:href => "#comments"} Older Comments
+								.nav-next
+									%a{:href => "#comments"} Newer Comments
+							/ .nav-links
+						/ #comment-nav-below
+						#respond.comment-respond
+							.section-title
+								%h3 Leave a comment
+							%form.form-horizontal.comment-form
+								.form-group
+									.col-sm-12
+										%label Message
+										%textarea.form-control{:rows => "6"}
+								.form-group
+									.col-sm-4
+										%label Name *
+										%input.form-control{:type => "text"}/
+									.col-sm-4
+										%label Email *
+										%input.form-control{:type => "email"}/
+									.col-sm-4
+										%label Website
+										%input.form-control{:type => "url"}/
+								%p.form-submit
+									%input.btn.btn-default{:name => "submit", :type => "submit", :value => "Submit"}/
+						/ .comment-respond
+					/ .comments-area
+				/ .site-entry
+			/ .col-md-8
+		/ .row
+	/ .container
+	-# .single-post-w
+		%h1.post-title
+			= @media.title
+		%p.post-info
+			
+			%span.info-item
+				by
+				%a{href: articles_path( by: @media.user_id )}
+					= @media.user.avatar_tag( width: 20 )
+					= @media.user
+			%span.info-item
+				= @media.publish_at.strftime('%B %e, %Y')
+			- if @media.tags.present?
+				%span.info-item
+					Tagged:
+					- @media.tags.each do |tag|
+						%a.post-tag{ href: articles_path( tagged: tag.name ) }
+							%span.label.label-info
+								= tag.name
+		- if @media.avatar.present?
+			.post-avatar{ style: 'text-align:center;' }
+				= image_tag @media.avatar
+
+		.post-content
+			= raw @media.content
+
+	- if @media.is_commentable?
+		%section#comments
+			=# render 'application/fb_comments'
+
+
+
