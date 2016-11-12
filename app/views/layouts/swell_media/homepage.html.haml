@@ -11,85 +11,10 @@
 		= render 'application/header_scripts'
 	%body.home.blog
 		#page.site
-			%a.skip-link.screen-reader-text{:href => "#content"} Skip to content
-			/ topbar featured slider
-			.topbar-slider
-				#slider-thumbnail.owl-carousel.owl-theme.slider-thumbnail
-					.item
-						%img{:alt => "featured slider 01", :src => image_path("theme/img/astrif-featured-slider-01.jpg")}/
-						.item-caption
-							.caption-description
-								%a.caption-cat-links{:href => "category.html"} Cook
-								%span.caption-title
-									%a.caption-title-link{:href => "single.html"} Learn how to make nasi goreng seafood pedas
-									%a.button.caption-more-link{:href => "single.html"} Read More
-								/ .caption-title
-							/ .caption-description
-						/ .item-caption
-					/ .item
-					.item
-						%img{:alt => "featured slider 02", :src => image_path("theme/img/astrif-featured-slider-02.jpg")}/
-						.item-caption
-							.caption-description
-								%a.caption-cat-links{:href => "category.html"} appetizer
-								%span.caption-title
-									%a.caption-title-link{:href => "single.html"} fruit salad made from Black Autumn Royal grapes
-									%a.button.caption-more-link{:href => "single.html"} Read More
-								/ .caption-title
-							/ .caption-description
-						/ .item-caption
-					/ .item
-					.item
-						%img{:alt => "featured slider 03", :src => image_path("theme/img/astrif-featured-slider-03.jpg")}/
-						.item-caption
-							.caption-description
-								%a.caption-cat-links{:href => "category.html"} Fruit
-								%span.caption-title
-									%a.caption-title-link{:href => "single.html"} Red cherry is the raw material for making cake
-									%a.button.caption-more-link{:href => "single.html"} Read More
-								/ .caption-title
-							/ .caption-description
-						/ .item-caption
-					/ .item
-					.item
-						%img{:alt => "featured slider 04", :src => image_path("theme/img/astrif-featured-slider-04.jpg")}/
-						.item-caption
-							.caption-description
-								%a.caption-cat-links{:href => "category.html"} Food
-								%span.caption-title
-									%a.caption-title-link{:href => "single.html"} Yummy dragon beef with delicious sauce
-									%a.button.caption-more-link{:href => "single.html"} Read More
-								/ .caption-title
-							/ .caption-description
-						/ .item-caption
-					/ .item
-					.item
-						%img{:alt => "featured slider 05", :src => image_path("theme/img/astrif-featured-slider-05.jpg")}/
-						.item-caption
-							.caption-description
-								%a.caption-cat-links{:href => "category.html"} Dessert
-								%span.caption-title
-									%a.caption-title-link{:href => "single.html"} All you need is gelato, Yeey!
-									%a.button.caption-more-link{:href => "single.html"} Read More
-								/ .caption-title
-							/ .caption-description
-						/ .item-caption
-					/ .item
-					.item
-						%img{:alt => "featured slider 06", :src => image_path("theme/img/astrif-featured-slider-06.jpg")}/
-						.item-caption
-							.caption-description
-								%a.caption-cat-links{:href => "category.html"} Dessert
-								%span.caption-title
-									%a.caption-title-link{:href => "single.html"} Sweet pancake fruity cream, favorite!
-									%a.button.caption-more-link{:href => "single.html"} Read More
-								/ .caption-title
-							/ .caption-description
-						/ .item-caption
-					/ .item
-				/ #slider-thumbnail
-			/ .topbar-slider
-			= render 'application/site_header'
+			- cache( 'application/site_header_features' ) do
+				= render 'application/site_header_features', featured_results: @featured_results, args: {}
+			- cache( 'application/site_header' ) do
+				= render 'application/site_header'
 			/ content
 			#content.site-content
 				#primary.content-area
@@ -111,7 +36,8 @@
 					/ #main
 				/ #primary
 			/ #content
-			= render 'application/footer'
+			- cache( 'application/footer' ) do
+				= render 'application/footer'
 		/ #page
 		/ jQuery (necessary for Bootstrap's JavaScript plugins)
 		= render 'application/footer_scripts'

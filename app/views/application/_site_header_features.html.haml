@@ -1,0 +1,20 @@
+%a.skip-link.screen-reader-text{:href => "#content"} Skip to content
+/ topbar featured slider
+.topbar-slider
+	#slider-thumbnail.owl-carousel.owl-theme.slider-thumbnail
+		- featured_results.each do |media|
+			.item
+				%img{:alt => media.title, :src => media.avatar_url(:featured)}/
+				.item-caption
+					.caption-description
+						%a.caption-cat-links{:href => main_app.category_path(media.category.slug)}=media.category.name
+						%span.caption-title
+							%a.caption-title-link{:href => media.url}=media.title
+							%a.button.caption-more-link{:href => media.url} Read More
+						/ .caption-title
+					/ .caption-description
+				/ .item-caption
+			/ .item
+
+	/ #slider-thumbnail
+/ .topbar-slider

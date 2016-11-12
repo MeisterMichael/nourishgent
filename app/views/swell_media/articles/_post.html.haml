@@ -1,10 +1,12 @@
 %article.post.format-standard.hentry{ class: args[:class] }
 	- if (args[:class] || '').include?('first-post') && media.cover_path
 		.entry-featured-image
-			%img{:alt => media.title, :src => media.cover_path}/
+			%a{ :href => media.url }
+				%img{:alt => media.title, :src => media.cover_path}/
 	- elsif media.avatar.present?
 		.entry-featured-image
-			%img{:alt => media.title, :src => media.avatar}/
+			%a{ :href => media.url }
+				%img{:alt => media.title, :src => media.avatar}/
 	/ .entry-featured-image
 	.entry-area
 		.entry-header

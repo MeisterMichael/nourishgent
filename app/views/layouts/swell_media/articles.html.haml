@@ -11,7 +11,8 @@
 		= render 'application/header_scripts'
 	%body.single.single-post
 		#page.site
-			= render 'application/site_header'
+			- cache( 'application/site_header' ) do
+				= render 'application/site_header'
 			/ content
 			#content.site-content
 				#primary.content-area
@@ -21,7 +22,8 @@
 					/ #main
 				/ #primary
 			/ #content
-			= render 'application/footer'
+			- cache( 'application/footer' ) do
+				= render 'application/footer'
 		/ #page
 		/ jQuery (necessary for Bootstrap's JavaScript plugins)
 		= render 'application/footer_scripts'
