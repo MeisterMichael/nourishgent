@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109191019) do
+ActiveRecord::Schema.define(version: 20161111231500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -140,11 +140,14 @@ ActiveRecord::Schema.define(version: 20161109191019) do
     t.string   "tags",                     default: [],    array: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "score",                    default: 1.0
   end
 
   add_index "media", ["category_id"], name: "index_media_on_category_id", using: :btree
   add_index "media", ["managed_by_id"], name: "index_media_on_managed_by_id", using: :btree
   add_index "media", ["public_id"], name: "index_media_on_public_id", using: :btree
+  add_index "media", ["score", "category_id", "status", "publish_at"], name: "index_media_on_score_and_category_id_and_status_and_publish_at", using: :btree
+  add_index "media", ["score", "status", "publish_at"], name: "index_media_on_score_and_status_and_publish_at", using: :btree
   add_index "media", ["slug", "type"], name: "index_media_on_slug_and_type", using: :btree
   add_index "media", ["slug"], name: "index_media_on_slug", unique: true, using: :btree
   add_index "media", ["status", "availability"], name: "index_media_on_status_and_availability", using: :btree

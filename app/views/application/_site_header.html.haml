@@ -29,10 +29,10 @@
 				%p.site-description - Life, Health and Growth -
 			/ .col-md-6
 			.col-md-3
-				%form.search-form
+				= form_tag main_app.category_path( :all ), method: :get, class: 'search-form' do
 					.form-group
 						%label.sr-only{:for => "search"} Search
-						%input.form-control.search-field{:placeholder => "Search...", :type => "text"}/
+						= text_field_tag :q, '', :placeholder => "Search...", class: 'form-control search-field'
 					/ .form-group
 					%button.btn.btn-default.search-submit{:type => "submit"}
 						%i.fa.fa-search

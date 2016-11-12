@@ -54,6 +54,8 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+	resources :categories, only: [:show]
+
 	mount SwellMedia::Engine, :at => '/'
 
 end

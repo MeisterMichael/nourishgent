@@ -1,0 +1,37 @@
+%article.post.format-standard.hentry{ class: args[:class] }
+	- if (args[:class] || '').include?('first-post') && media.cover_path
+		.entry-featured-image
+			%img{:alt => media.title, :src => media.cover_path}/
+	- elsif media.avatar.present?
+		.entry-featured-image
+			%img{:alt => media.title, :src => media.avatar}/
+	/ .entry-featured-image
+	.entry-area
+		.entry-header
+			%h2.entry-title
+				%a{:href => media.url, :rel => "bookmark"}=media.title
+			.entry-meta
+				%span.posted-on
+					%a{:href => media.url, :rel => "bookmark"}
+						%time.entry-date{:datetime => media.publish_at.strftime('%B %e, %Y')}=media.publish_at.strftime('%B %e, %Y')
+				/ .posted-on
+				%span.entry-cat
+					%span.cat-link
+						%a{:href => main_app.category_path(media.category.slug)} Cook
+				/ .entry-cat
+				-# %span.entry-like
+					%a{:href => ""}
+						%i.fa.fa-heart-o
+						172
+			/ .entry-meta
+		/ .entry-header
+		.entry-content
+			%p
+				= (media.description || media.sanitized_content).truncate(255)
+				%a.more-link{:href => media.url }
+					%span.moretext Read more
+					%span.screen-reader-text How to make mak-nyuss baked potatoes stick recipes from Deanda
+				/ .more-link
+		/ .entry-content
+	/ .entry-area
+/ .post

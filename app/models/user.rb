@@ -14,4 +14,9 @@ class User < SwellMedia::User
 		end
 	end
 
+
+	def self.me
+		self.first
+	end
+
 end

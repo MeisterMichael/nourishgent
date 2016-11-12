@@ -1,0 +1,50 @@
+.container
+	.row
+		/ article
+		.col-md-8
+			.site-entry
+				%header.page-header
+					%h1.page-title
+						- if @search_term.present?
+							%span Showing Results for
+							"#{@search_term}"
+						- else
+							- if @category.present?
+								%span Browsing Category
+							- else
+								%span Browsing
+							= @title
+					.taxonomy-description
+						%p=@subtitle
+				.row.container-masonry.category
+					- @results.each do |media|
+						.col-sm-6
+							= render 'swell_media/articles/post', media: media, args: { class: 'post-grid' }
+						/ .col-sm-6
+
+				- if (total_pages = @results.total_pages) > 1
+					/ .row
+					%nav.navigation.pagination{:role => "navigation"}
+						%h2.screen-reader-text Posts navigation
+						.nav-links
+							- if @results.current_page > 1
+								%a.prev.page-numbers{:href => main_app.category_path( params[:id], tags: params[:tags], page: (@results.current_page - 1) )}  Prev
+							- ([@results.current_page, @results.current_page - 1].max..[@results.current_page + 1, total_pages].min).each do |page|
+								- if page == @results.current_page
+									%span.page-numbers.current=@results.current_page
+								- else
+									%a.page-numbers{:href => main_app.category_path( params[:id], tags: params[:tags], page: page )}=page
+							- if @results.current_page + 2 < total_pages
+								%span.page-numbers.dots …
+							- if @results.current_page + 1 < total_pages
+								%a.page-numbers{:href => main_app.category_path( params[:id], tags: params[:tags], page: total_pages )}= total_pages
+							- if @results.current_page < total_pages
+								%a.next.page-numbers{:href => main_app.category_path( params[:id], tags: params[:tags], page: @results.current_page + 1 )} Next
+						/ .nav-links
+				/ .navigation
+		/ .col-md-9
+		/ sidebar
+		.col-md-4
+			= render 'application/site_sidebar'
+	/ .row
+/ .container

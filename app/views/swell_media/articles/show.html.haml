@@ -19,7 +19,7 @@
 								- if @media.category.present?
 									%span.entry-cat
 										%span.cat-link
-											%a{:href => "category.html"}=@media.category.name.upcase
+											%a{:href => main_app.category_path(@media.category.slug)}=@media.category.name.upcase
 								/ .entry-cat
 								-# %span.entry-like
 									%a{:href => ""}
@@ -29,7 +29,7 @@
 						/ .entry-header
 						- if (featured_image = (@media.cover_path || @media.avatar)).present?
 							.entry-featured-image
-								%img{:alt => @media.avatar_caption || @avatar.title, :src => featured_image}/
+								%img{:alt => @media.avatar_caption || @media.title, :src => featured_image}/
 							/ .entry-featured-image
 						.entry-content
 							= raw @media.content
@@ -38,7 +38,8 @@
 							- if @media.tags.present?
 								%span.tags-links
 									- @media.tags.each do |tag|
-										%a{:href => "#"}=tag
+										%a{ :href => main_app.category_path( :all, tag: tag ) }=tag
+
 								/ .tags-links
 							%span.share-links
 								%span Share this
@@ -63,16 +64,31 @@
 					%nav.navigation.post-navigation{:role => "navigation"}
 						%h2.screen-reader-text Post navigation
 						.nav-links
-							.nav-previous
-								%a.image-link{:href => "#"}
-									%img{:src => image_path( "theme/img/astrif-post-entry-02.jpg" ) }/
-								%span Previous Post
-								%a.prev-link{:href => "#", :rel => "prev"} Healthy Breakfast For Cute Girl
-							.nav-next
-								%a.image-link{:href => "#"}
-									%img{:src => image_path( "theme/img/astrif-post-entry-07.jpg" ) }/
-								%span Next Post
-								%a.next-link{:href => "#", :rel => "next"} Gelato in 'omah gelato' will punch you hard!
+							- if (previous_media = SwellMedia::Article.where('publish_at < ?', @media.publish_at).order(id: :desc).first).present?
+								.nav-previous
+									%a.image-link{:href => previous_media.url}
+										%img{:src => previous_media.avatar }/
+									%span Previous Post
+									%a.prev-link{:href => previous_media.url, :rel => "prev"}=previous_media.title
+							- else
+								.nav-previous{ style: 'visibility: hidden' }
+									%a.image-link{:href => @media.url}
+										%img{:src => @media.avatar }/
+									%span Previous Post
+									%a.prev-link{:href => @media.url, :rel => "prev"}=@media.title
+
+							- if (next_media = SwellMedia::Article.where('publish_at > ?', @media.publish_at).order(id: :asc).first).present?
+								.nav-next
+									%a.image-link{:href => next_media.url}
+										%img{:src => next_media.avatar }/
+									%span Next Post
+									%a.next-link{:href => next_media.url, :rel => "next"}=next_media.title
+							- else
+								.nav-previous{ style: 'visibility: hidden' }
+									%a.image-link{:href => @media.url}
+										%img{:src => @media.avatar }/
+									%span Previous Post
+									%a.prev-link{:href => @media.url, :rel => "next"}=@media.title
 					/ .navigation
 					/ author bio
 					.section-title
@@ -106,42 +122,19 @@
 						.section-title
 							%h3 You May Also Like
 						.row
-							.col-sm-4
-								.post-container
-									.post-thumbnail
-										%a{:href => "#"}
-											%img{:src => image_path( "theme/img/astrif-post-entry-02.jpg")}/
-									/ .post-thumbnail
-									%h3.post-title
-										%a{:href => "#"} What I Wore Today
-									%span.post-meta
-										%a{:href => "#"} Okt 09, 2016
-								/ .post-container
-							/ .col-md-3
-							.col-sm-4
-								.post-container
-									.post-thumbnail
-										%a{:href => "#"}
-											%img{:src => image_path( "theme/img/astrif-post-entry-04.jpg")}/
-									/ .post-thumbnail
-									%h3.post-title
-										%a{:href => "#"} 10 comfy swimsuit in this month
-									%span.post-meta
-										%a{:href => "#"} Aug 14, 2016
-								/ .post-container
-							/ .col-md-3
-							.col-sm-4
-								.post-container
-									.post-thumbnail
-										%a{:href => "#"}
-											%img{:src => image_path( "theme/img/astrif-post-entry-05.jpg")}/
-									/ .post-thumbnail
-									%h3.post-title
-										%a{:href => "#"} 7 sweet hat for hangout that you should know
-									%span.post-meta
-										%a{:href => "#"} Aug 02, 2016
-								/ .post-container
-							/ .col-md-3
+							- SwellMedia::Article.published.order(score: :desc).where.not( id: @media.id ).limit(3).each do |suggested_media|
+								.col-sm-4
+									.post-container
+										.post-thumbnail
+											%a{:href => suggested_media.url}
+												%img{:src => suggested_media.avatar}/
+										/ .post-thumbnail
+										%h3.post-title
+											%a{:href => suggested_media.url}=suggested_media.title
+										%span.post-meta
+											%a{:href => "#"}=suggested_media.publish_at.strftime('%B %e, %Y')
+									/ .post-container
+								/ .col-md-3
 						/ .row
 					/ .related-posts
 					#comments.comments-area
@@ -284,7 +277,7 @@
 				%span.info-item
 					Tagged:
 					- @media.tags.each do |tag|
-						%a.post-tag{ href: articles_path( tagged: tag.name ) }
+						%a.post-tag{ href: browse_path( :all, tags: [tag] ) }
 							%span.label.label-info
 								= tag.name
 		- if @media.avatar.present?
