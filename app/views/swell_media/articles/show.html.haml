@@ -100,22 +100,7 @@
 						.author-bio-description
 							%h4= @media.user.full_name || @media.user.name
 							%p= @media.user.short_bio
-							%ul.social-icon
-								%li
-									%a.icon-facebook{:href => "#", :target => "_blank"}
-										%i.fa.fa-facebook
-								%li
-									%a.icon-twitter{:href => "#", :target => "_blank"}
-										%i.fa.fa-twitter
-								%li
-									%a.icon-instagram{:href => "#", :target => "_blank"}
-										%i.fa.fa-instagram
-								%li
-									%a.icon-youtube{:href => "#", :target => "_blank"}
-										%i.fa.fa-youtube-play
-								%li
-									%a.icon-pinterest{:href => "#", :target => "_blank"}
-										%i.fa.fa-pinterest
+							= render 'application/social_icons', args: {}
 						/ .author-bio-description
 					/ entry-author-bio
 					.related-posts
