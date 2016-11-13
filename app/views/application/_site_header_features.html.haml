@@ -2,7 +2,7 @@
 / topbar featured slider
 .topbar-slider
 	#slider-thumbnail.owl-carousel.owl-theme.slider-thumbnail
-		- featured_results.each do |media|
+		- @featured_results.each do |media|
 			.item
 				%img{:alt => media.title, :src => media.avatar_url(:featured)}/
 				.item-caption

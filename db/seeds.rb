@@ -20,9 +20,9 @@ short_bio = bio
 admin_user = User.create( name: 'nourishgent', email: 'meister@spacekace.com', first_name: 'Michael', last_name: 'Ferguson', status: 'active', role: 'admin', password: default_password, short_bio: short_bio, bio: bio, properties: { "facebook_id" => 'nourishgent', "twitter_id" => 'nourishgent', "pinterest_id" => 'nourishgent', "instagram_id" => 'nourishgent' } )
 
 
-food			= SwellMedia::Category.create( status: 'active', availability: 'anyone', name: 'Recipes' )
+food			= SwellMedia::Category.create( status: 'active', availability: 'anyone', name: 'Food' )
 fitness		= SwellMedia::Category.create( status: 'active', availability: 'anyone', name: 'Fitness' )
-tips			= SwellMedia::Category.create( status: 'active', availability: 'anyone', name: 'Life Hacks' )
+tips			= SwellMedia::Category.create( status: 'active', availability: 'anyone', name: 'Hacks' )
 
 
 content = <<HTML

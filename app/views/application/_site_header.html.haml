@@ -58,32 +58,21 @@
 							%span.sr-only Primary Menu
 						.menu-container
 							%ul#primary-menu.menu.nav-menu{"aria-expanded" => "false"}
-								%li.menu-item.current-menu-item
+								%li.menu-item{ class: set_css_if( class: 'current-menu-item', path: swell_media.root_path() ) }
 									%a{:href => swell_media.root_path() } Home
 								%li.menu-item.menu-item-has-children{"aria-haspopup" => "true"}
 									%a{:href => "#"} Features
 									%ul.sub-menu
-										%li.menu-item
-											%a{:href => "single.html"} Single Post
-										%li.menu-item
-											%a{:href => "single-sidebar.html"} Single Post With Sidebar
-										%li.menu-item
-											%a{:href => "page-fullwidth.html"} Page Full Width
-										%li.menu-item
-											%a{:href => "page-sidebar.html"} Page With Sidebar
-										%li.menu-item
-											%a{:href => "shortcodes.html"} Shortcodes
-										%li.menu-item
-											%a{:href => "typography.html"} Typography
-										%li.menu-item
-											%a{:href => "404.html"} Not Found
-								%li.menu-item
-									%a{:href => "category.html"} Food
-								%li.menu-item
-									%a{:href => "category.html"} Cook
-								%li.menu-item
+										- @featured_results.each do |media|
+											%li.menu-item
+												%a{:href => media.url}=media.title
+								%li.menu-item{ class: set_css_if( class: 'current-menu-item', path: main_app.category_path(:food) ) }
+									%a{:href => main_app.category_path(:food)} Food
+								%li.menu-item{ class: set_css_if( class: 'current-menu-item', path: main_app.category_path(:hacks) ) }
+									%a{:href => main_app.category_path(:hacks)} Hacks
+								%li.menu-item{ class: set_css_if( class: 'current-menu-item', path: main_app.about_path() ) }
 									%a{:href => main_app.about_path()} About Me
-								%li.menu-item
+								%li.menu-item{ class: set_css_if( class: 'current-menu-item', path: swell_media.new_contact_path() ) }
 									%a{:href => swell_media.new_contact_path()} Contact
 						/ .menu-container
 					/ .col-md-12
