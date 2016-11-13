@@ -1,0 +1,90 @@
+.container
+	.row
+		/ article
+		.col-md-8.col-md-offset-2
+			.site-entry
+				%article.post.format-standard.hentry
+					.entry-header
+						%h1.entry-title Contact
+					/ .entry-header
+					.entry-content
+						%ul.social-icon.text-center
+							- if User.me.social_id(:twitter).present?
+								%li
+									%a.icon-twitter{:href => "http://twitter.com/#{User.me.social_id(:twitter)}"}
+										%i.fa.fa-twitter
+							- if User.me.social_id(:facebook).present?
+								%li
+									%a.icon-facebook{:href => "http://www.facebook.com/#{User.me.social_id(:facebook)}"}
+										%i.fa.fa-facebook
+							- if User.me.social_id(:instagram).present?
+								%li
+									%a.icon-instagram{:href => "www.instagram.com/#{User.me.social_id(:instagram)}"}
+										%i.fa.fa-instagram
+							- if User.me.social_id(:pinterest).present?
+								%li
+									%a.icon-pinterest{:href => "http://www.pinterest.com/#{User.me.social_id(:pinterest)}"}
+										%i.fa.fa-pinterest
+							- if User.me.social_id(:youtube).present?
+								%li
+									%a.icon-youtube{:href => "http://www.youtube.com/channel/#{User.me.social_id(:youtube)}"}
+										%i.fa.fa-youtube-play
+							-# %li
+								%a.icon-social.icon-google-plus{:href => "#"}
+									%i.fa.fa-google-plus
+							-# %li
+								%a.icon-social.icon-linkedin{:href => "#"}
+									%i.fa.fa-linkedin
+							-# %li
+								%a.icon-social.icon-dribbble{:href => "#"}
+									%i.fa.fa-dribbble
+						/ .social-icon
+						%p.text-center Fill out the form below with some info about you and question what you wanna ask for. Or wanna work with? Feel free to contact!
+						= form_for @contact, html: { class: 'form-horizontal' } do |f|
+							.form-group
+								.col-sm-6
+									= f.label :subject, 'Name'
+									= f.text_field :subject, class: 'form-control form-bordered'
+								.col-sm-6
+									= f.label :email
+									= f.text_field :email, class: 'form-control form-bordered'
+							.form-group
+								.col-sm-12
+									= f.label :message
+									= f.text_area :message, rows: 8, class: 'form-control form-bordered'
+							.form-group
+								.col-sm-12
+									%button{:type => "submit"} Submit
+						/ .form-horizontal
+					/ .entry-content
+				/ .post
+			/ .site-entry
+		/ .col-md-9
+	/ .row
+/ .container
+
+-#.container
+	.row
+		.col-sm-8
+
+			%h3.headline.first-child
+				%span
+					Contact
+			%p
+				We'd love to hear from you!
+
+			= form_for @contact do |f|
+				.form-group
+					= f.label :email
+					= f.text_field :email, placeholder: 'Your Email', class: 'form-control'
+				.form-group
+					= f.label :subject
+					= f.text_field :subject, placeholder: 'Subject', class: 'form-control'
+				.form-group
+					= f.label :message
+					= f.text_area :message, rows: 3, class: 'form-control'
+
+				= f.submit 'Send', class: 'btn btn-lg btn-red'
+
+
+		.col-sm-4
