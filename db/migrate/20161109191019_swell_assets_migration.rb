@@ -1,7 +1,8 @@
 class SwellAssetsMigration < ActiveRecord::Migration
 	# V4.0
-	
+
 	def change
+		enable_extension 'hstore'
 
 		create_table :assets do |t|
 			t.references 	:parent_obj, polymorphic: true
@@ -28,7 +29,7 @@ class SwellAssetsMigration < ActiveRecord::Migration
 			t.integer		:status, 						default: 1
 			t.integer		:availability, 					default: 1	# anyone, logged_in, just_me
 
-			t.hstore		:properties
+			t.hstore		:properties, default: {}
 			t.timestamps
 		end
 

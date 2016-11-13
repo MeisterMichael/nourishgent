@@ -1,0 +1,55 @@
+.container
+	.row
+		/ article
+		.col-md-8.col-md-offset-2
+			.site-entry
+				%article.post.format-standard.hentry
+					.entry-header
+						%h1.entry-title About Me
+					/ .entry-header
+					.entry-content
+						%img.img-responsive.aligncenter{:src => User.me.avatar_url}/
+						%p.text-center
+							Hello I’m
+							= succeed "." do
+								%strong=User.me.full_name
+							= User.me.bio
+						%p.text-center Feel free to ask me anything about you wondered.
+						%h5.text-upper.text-center FOLLOW ME
+						%ul.social-icon.text-center
+							- if User.me.social_id(:twitter).present?
+								%li
+									%a.icon-twitter{:href => "http://twitter.com/#{User.me.social_id(:twitter)}"}
+										%i.fa.fa-twitter
+							- if User.me.social_id(:facebook).present?
+								%li
+									%a.icon-facebook{:href => "http://www.facebook.com/#{User.me.social_id(:facebook)}"}
+										%i.fa.fa-facebook
+							- if User.me.social_id(:instagram).present?
+								%li
+									%a.icon-instagram{:href => "www.instagram.com/#{User.me.social_id(:instagram)}"}
+										%i.fa.fa-instagram
+							- if User.me.social_id(:pinterest).present?
+								%li
+									%a.icon-pinterest{:href => "http://www.pinterest.com/#{User.me.social_id(:pinterest)}"}
+										%i.fa.fa-pinterest
+							- if User.me.social_id(:youtube).present?
+								%li
+									%a.icon-youtube{:href => "http://www.youtube.com/channel/#{User.me.social_id(:youtube)}"}
+										%i.fa.fa-youtube-play
+							-# %li
+								%a.icon-social.icon-google-plus{:href => "#"}
+									%i.fa.fa-google-plus
+							-# %li
+								%a.icon-social.icon-linkedin{:href => "#"}
+									%i.fa.fa-linkedin
+							-# %li
+								%a.icon-social.icon-dribbble{:href => "#"}
+									%i.fa.fa-dribbble
+						/ .social-icon
+					/ .entry-content
+				/ .post
+			/ .site-entry
+		/ .col-md-9
+	/ .row
+/ .container

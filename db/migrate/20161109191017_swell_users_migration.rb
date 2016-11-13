@@ -1,6 +1,6 @@
 class SwellUsersMigration < ActiveRecord::Migration
 	# V2.0
-	
+
 	def change
 
 		enable_extension 'uuid-ossp'
@@ -11,7 +11,7 @@ class SwellUsersMigration < ActiveRecord::Migration
 			t.references	:user
 			t.string		:name
 			t.string		:provider
-			t.string		:uid 
+			t.string		:uid
 			t.string		:token
 			t.string		:refresh_token
 			t.string		:secret
@@ -27,9 +27,9 @@ class SwellUsersMigration < ActiveRecord::Migration
 
 
 		create_table :users do |t|
-			
+
 			t.string		:name
-			
+
 			## Database authenticatable
 			t.string		:email,					null: false, default: ""
 			t.string		:encrypted_password,	null: false, default: ""
@@ -45,8 +45,8 @@ class SwellUsersMigration < ActiveRecord::Migration
 			t.string		:address1
 			t.string		:address2
 			t.string		:city
-			t.string		:state 
-			t.string		:zip 
+			t.string		:state
+			t.string		:zip
 			t.string		:phone
 			t.integer		:status,				default: 1
 			t.integer		:role,					default: 1
@@ -60,7 +60,7 @@ class SwellUsersMigration < ActiveRecord::Migration
 			t.float			:latitude
 			t.float 		:longitude
 			t.string		:timezone, default: 'Pacific Time (US & Canada)'
-			
+
 			## Recoverable
 			t.string		:reset_password_token
 			t.datetime		:reset_password_sent_at
@@ -91,7 +91,7 @@ class SwellUsersMigration < ActiveRecord::Migration
 
 			## Token authenticatable
 			t.string		:authentication_token
-			t.hstore		:properties
+			t.hstore		:properties, default: {}
 			t.hstore		:settings
 
 			t.timestamps

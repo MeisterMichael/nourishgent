@@ -56,6 +56,8 @@ Rails.application.routes.draw do
 
 	resources :categories, only: [:show]
 
+	get '/about' => 'swell_media/static#about', as: 'about'
+
 	mount SwellMedia::Engine, :at => '/'
 
 end

@@ -19,4 +19,9 @@ class User < SwellMedia::User
 		self.first
 	end
 
+
+	def social_id( source )
+		self.properties["#{source}_id"]
+	end
+
 end

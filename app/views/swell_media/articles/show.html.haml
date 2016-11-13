@@ -99,7 +99,7 @@
 						/ .author-bio-avatar
 						.author-bio-description
 							%h4= @media.user.full_name || @media.user.name
-							%p= @media.user.bio || @media.user.short_bio
+							%p= @media.user.short_bio
 							%ul.social-icon
 								%li
 									%a.icon-facebook{:href => "#", :target => "_blank"}
@@ -137,7 +137,7 @@
 								/ .col-md-3
 						/ .row
 					/ .related-posts
-					#comments.comments-area
+					-# #comments.comments-area
 						.section-title
 							%h3 4 Comments
 						%nav#comment-nav-above.navigation.comment-navigation{:role => "navigation"}

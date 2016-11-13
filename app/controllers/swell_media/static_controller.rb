@@ -1,6 +1,12 @@
 module SwellMedia
 	class StaticController < ApplicationController
 
+		def about
+
+
+
+		end
+
 		def home
 			# the homepage
 

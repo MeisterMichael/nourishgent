@@ -17,40 +17,28 @@
 			/ .row
 		/ .container
 	/ .footer-subscribe
-	/ footer instagram
-	.footer-instagram
-		.instagram-title
-			%h3
-				insta
-				%i.fa.fa-instagram
-				gram
-			%span.instagram-subtitle Know me better
-		.instagram-widget
-			%ul
-				%li
-					%a{:href => ""}
-						%img{:alt => "", :src => image_path("theme/img/astrif-post-entry-02.jpg")}/
-				%li
-					%a{:href => ""}
-						%img{:alt => "", :src => image_path("theme/img/astrif-post-entry-03.jpg")}/
-				%li
-					%a{:href => ""}
-						%img{:alt => "", :src => image_path("theme/img/astrif-post-entry-04.jpg")}/
-				%li
-					%a{:href => ""}
-						%img{:alt => "", :src => image_path("theme/img/astrif-post-entry-05.jpg")}/
-				%li
-					%a{:href => ""}
-						%img{:alt => "", :src => image_path("theme/img/astrif-post-entry-06.jpg")}/
-				%li
-					%a{:href => ""}
-						%img{:alt => "", :src => image_path("theme/img/astrif-post-entry-07.jpg")}/
-			%p.instagram-follow
-				%a.btn.btn-default{:href => "http://instagram.com/templateninja", :target => "_blank"} @templateninja
-	/ .footer-instagram
+	- if User.me.social_id(:instagram).present?
+		/ footer instagram
+		.footer-instagram
+			.instagram-title
+				%h3
+					insta
+					%i.fa.fa-instagram
+					gram
+				%span.instagram-subtitle Know me better
+			.instagram-widget
+				%ul
+					- SwellMedia::Article.published.order( publish_at: :desc ).limit(6).each do |media|
+						%li
+							%a{:href => media.url}
+								%img{:alt => media.title, :src => media.avatar}/
+
+				%p.instagram-follow
+					%a.btn.btn-default{:href => "http://instagram.com/#{User.me.social_id(:instagram)}", :target => "_blank"} @#{User.me.social_id(:instagram)}
+		/ .footer-instagram
 / #site-footer
 / copyright
-%section#copyright.copyright
+-# %section#copyright.copyright
 	.container
 		.row
 			.col-sm-12
