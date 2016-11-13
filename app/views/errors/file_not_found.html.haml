@@ -1,0 +1,38 @@
+.container
+	.row
+		/ article
+		.col-md-10.col-md-offset-1
+			.site-entry
+				%article.post.format-standard.hentry
+					.entry-header
+						%h1.entry-title Not Found.
+					/ .entry-header
+					.entry-content
+						.row
+							.col-md-8.col-md-offset-2.text-center
+								%h5.text-upper OOPS! THAT PAGE CAN’T BE FOUND.
+								%p It looks like nothing was found at this location. Maybe try one of the links below or a one of another keyword to search.
+								= form_tag main_app.category_path( :all ), method: :get, class: 'search-form' do
+									.form-group
+										%label.sr-only{:for => "search"} Search
+										= text_field_tag :q, '', :placeholder => "Search...", class: 'form-control search-field'
+									/ .form-group
+									%button.btn.btn-default.search-submit{:type => "submit"}
+										%i.fa.fa-search
+								/ .search-form
+								%section.widget.widget_tag_cloud
+									%h2.widget-title
+										%span Tags
+									.tagcloud
+										- SwellMedia::Media.tags_cloud{ merge(SwellMedia::Article.published) }.each do |tag,count|
+											%a{:href => main_app.category_path( :all, tag: tag ) }
+												= tag
+												%span=count
+							/ .col-##
+						/ .row
+					/ .entry-content
+				/ .post
+			/ .site-entry
+		/ .col-md-8
+	/ .row
+/ .container

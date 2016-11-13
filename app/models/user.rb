@@ -19,6 +19,12 @@ class User < SwellMedia::User
 		self.first
 	end
 
+	def avatar_url( args = {} )
+		aurl = self.properties["avatar_#{args.delete(:size)}"] if args[:size]
+		aurl ||= super( args )
+
+		aurl
+	end
 
 	def social_id( source )
 		self.properties["#{source}_id"]
