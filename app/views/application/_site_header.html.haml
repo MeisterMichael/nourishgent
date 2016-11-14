@@ -64,7 +64,7 @@
 							%ul#primary-menu.menu.nav-menu{"aria-expanded" => "false"}
 								%li.menu-item{ class: set_css_if( class: 'current-menu-item', path: swell_media.root_path() ) }
 									%a{:href => swell_media.root_path() } Home
-								%li.menu-item.menu-item-has-children{"aria-haspopup" => "true"}
+								%li.menu-item.menu-item-has-children.hidden-xs{"aria-haspopup" => "true"}
 									%a{:href => "#"} Features
 									%ul.sub-menu
 										- @featured_results.each do |media|
