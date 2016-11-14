@@ -8,7 +8,9 @@ class CategoriesController < ApplicationController
 
 		@title = @category.try(:name)
 		@title ||= "##{@tags.join(' #')}" if @tags.present?
-		@title ||= 'All'
+		@title ||= "New from #{SwellMedia.app_name}"
+
+		@cover_img = @category.try(:cover_image)
 
 		@subtitle = @category.try(:description) || '~'
 		@tags = params[:tags]
