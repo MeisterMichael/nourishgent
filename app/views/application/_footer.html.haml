@@ -14,13 +14,6 @@
 						.form-group
 							= f.email_field :email, class: 'form-control', :placeholder => "Your email address"
 						%button.btn.btn-default{:type => "submit"} Sign up
-					.text-center
-
-						%a{:href => "http://cloud.feedly.com/#subscription%2Ffeed%2F#{CGI.escape( swell_media.category_url( :all, format: 'rss' ) )}", :target => "blank", style: 'vertical-align: middle;'}><
-							%img#feedlyFollow{:alt => "follow us in feedly", :src => "http://s3.feedly.com/img/follows/feedly-follow-logo-green_2x.png", style: 'height: 2em;'}><
-						&nbsp;
-						%a{:href => swell_media.category_url( :all, format: 'rss' ), :target => "blank", style: 'vertical-align: middle;'}
-							%i.fa.fa-rss-square.fa-2x{ style: 'vertical-align: middle;' }
 					/ .form-inline
 				/ .col-##
 			/ .row

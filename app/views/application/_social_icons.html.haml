@@ -29,4 +29,8 @@
 	-# %li
 		%a.icon-social.icon-dribbble{:href => "#"}
 			%i.fa.fa-dribbble
+	%li
+		%a{:href => "http://cloud.feedly.com/#subscription%2Ffeed%2F#{CGI.escape( swell_media.category_url( :all, format: 'rss' ) )}", :target => "blank" }
+			%img#feedlyFollow{:alt => "follow us in feedly", :src => "http://s3.feedly.com/img/follows/feedly-follow-logo-black_2x.png", style: 'height: 1.25em;vertical-align: text-top;opacity: 0.5;'}><
+
 / .social-icon

@@ -45,6 +45,10 @@
 					%li
 						%a.icon-youtube{:href => "http://www.youtube.com/channel/#{User.me.social_id(:youtube)}"}
 							%i.fa.fa-youtube-play
+				%li
+					%a{:href => "http://cloud.feedly.com/#subscription%2Ffeed%2F#{CGI.escape( swell_media.category_url( :all, format: 'rss' ) )}", :target => "blank" }
+						%img#feedlyFollow{:alt => "follow us in feedly", :src => "http://s3.feedly.com/img/follows/feedly-follow-logo-white_2x.png", style: 'height: 1.3em;'}><
+
 		/ .follow-me
 	/ .astrif_widget_follow_me
 	- if ( popular_media_results = SwellMedia::Article.published.order(score: :desc).limit(5) ).present?
