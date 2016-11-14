@@ -28,18 +28,18 @@
 						%h2.screen-reader-text Posts navigation
 						.nav-links
 							- if @results.current_page > 1
-								%a.prev.page-numbers{:href => main_app.category_path( params[:id], tags: params[:tags], page: (@results.current_page - 1) )}  Prev
+								%a.prev.page-numbers{:href => swell_media.category_path( params[:id], tags: params[:tags], page: (@results.current_page - 1) )}  Prev
 							- ([@results.current_page, @results.current_page - 1].max..[@results.current_page + 1, total_pages].min).each do |page|
 								- if page == @results.current_page
 									%span.page-numbers.current=@results.current_page
 								- else
-									%a.page-numbers{:href => main_app.category_path( params[:id], tags: params[:tags], page: page )}=page
+									%a.page-numbers{:href => swell_media.category_path( params[:id], tags: params[:tags], page: page )}=page
 							- if @results.current_page + 2 < total_pages
 								%span.page-numbers.dots …
 							- if @results.current_page + 1 < total_pages
-								%a.page-numbers{:href => main_app.category_path( params[:id], tags: params[:tags], page: total_pages )}= total_pages
+								%a.page-numbers{:href => swell_media.category_path( params[:id], tags: params[:tags], page: total_pages )}= total_pages
 							- if @results.current_page < total_pages
-								%a.next.page-numbers{:href => main_app.category_path( params[:id], tags: params[:tags], page: @results.current_page + 1 )} Next
+								%a.next.page-numbers{:href => swell_media.category_path( params[:id], tags: params[:tags], page: @results.current_page + 1 )} Next
 						/ .nav-links
 				/ .navigation
 		/ .col-md-9

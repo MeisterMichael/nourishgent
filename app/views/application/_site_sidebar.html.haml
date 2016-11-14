@@ -1,6 +1,6 @@
 .site-sidebar
 	%section.widget.widget_search
-		= form_tag main_app.category_path( :all ), method: :get, class: 'search-form' do
+		= form_tag swell_media.category_path( :all ), method: :get, class: 'search-form' do
 			.form-group
 				%label.sr-only{:for => "search"} Search
 				= text_field_tag :q, '', :placeholder => "Search...", class: 'form-control search-field'
@@ -83,14 +83,14 @@
 		%ul
 			- SwellMedia::Category.all.order( slug: :asc ).each do |category|
 				%li
-					%a{:href => main_app.category_path( category.slug )}=category.name
+					%a{:href => swell_media.category_path( category.slug )}=category.name
 	/ .widget_categories
 	%section.widget.widget_tag_cloud
 		%h2.widget-title
 			%span Tags
 		.tagcloud
 			- SwellMedia::Media.tags_cloud{ merge(SwellMedia::Article.published) }.each do |tag,count|
-				%a{:href => main_app.category_path( :all, tag: tag ) }
+				%a{:href => swell_media.category_path( :all, tag: tag ) }
 					= tag
 					%span=count
 	/ .widget_tag_cloud

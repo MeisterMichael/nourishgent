@@ -12,7 +12,7 @@
 							.col-md-8.col-md-offset-2.text-center
 								%h5.text-upper OOPS! THAT PAGE CAN’T BE FOUND.
 								%p It looks like nothing was found at this location. Maybe try one of the links below or a one of another keyword to search.
-								= form_tag main_app.category_path( :all ), method: :get, class: 'search-form' do
+								= form_tag swell_media.category_path( :all ), method: :get, class: 'search-form' do
 									.form-group
 										%label.sr-only{:for => "search"} Search
 										= text_field_tag :q, '', :placeholder => "Search...", class: 'form-control search-field'
@@ -25,7 +25,7 @@
 										%span Tags
 									.tagcloud
 										- SwellMedia::Media.tags_cloud{ merge(SwellMedia::Article.published) }.each do |tag,count|
-											%a{:href => main_app.category_path( :all, tag: tag ) }
+											%a{:href => swell_media.category_path( :all, tag: tag ) }
 												= tag
 												%span=count
 							/ .col-##

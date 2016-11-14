@@ -34,7 +34,7 @@
 				%p.site-description - Life, Health and Growth -
 			/ .col-md-6
 			.col-md-3
-				= form_tag main_app.category_path( :all ), method: :get, class: 'search-form' do
+				= form_tag swell_media.category_path( :all ), method: :get, class: 'search-form' do
 					.form-group
 						%label.sr-only{:for => "search"} Search
 						= text_field_tag :q, '', :placeholder => "Search...", class: 'form-control search-field'
@@ -66,10 +66,10 @@
 										- @featured_results.each do |media|
 											%li.menu-item
 												%a{:href => media.url}=media.title
-								%li.menu-item{ class: set_css_if( class: 'current-menu-item', path: main_app.category_path(:food) ) }
-									%a{:href => main_app.category_path(:food)} Food
-								%li.menu-item{ class: set_css_if( class: 'current-menu-item', path: main_app.category_path(:hacks) ) }
-									%a{:href => main_app.category_path(:hacks)} Hacks
+								%li.menu-item{ class: set_css_if( class: 'current-menu-item', path: swell_media.category_path(:food) ) }
+									%a{:href => swell_media.category_path(:food)} Food
+								%li.menu-item{ class: set_css_if( class: 'current-menu-item', path: swell_media.category_path(:hacks) ) }
+									%a{:href => swell_media.category_path(:hacks)} Hacks
 								%li.menu-item{ class: set_css_if( class: 'current-menu-item', path: main_app.about_path() ) }
 									%a{:href => main_app.about_path()} About Me
 								%li.menu-item{ class: set_css_if( class: 'current-menu-item', path: swell_media.new_contact_path() ) }

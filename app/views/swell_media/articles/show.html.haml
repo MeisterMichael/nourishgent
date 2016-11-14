@@ -19,7 +19,7 @@
 								- if @media.category.present?
 									%span.entry-cat
 										%span.cat-link
-											%a{:href => main_app.category_path(@media.category.slug)}=@media.category.name.upcase
+											%a{:href => swell_media.category_path(@media.category.slug)}=@media.category.name.upcase
 								/ .entry-cat
 								-# %span.entry-like
 									%a{:href => ""}
@@ -38,7 +38,7 @@
 							- if @media.tags.present?
 								%span.tags-links
 									- @media.tags.each do |tag|
-										%a{ :href => main_app.category_path( :all, tag: tag ) }=tag
+										%a{ :href => swell_media.category_path( :all, tag: tag ) }=tag
 
 								/ .tags-links
 							%span.share-links

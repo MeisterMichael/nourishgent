@@ -1,7 +1,5 @@
-GIT
-  remote: git://github.com/playswell/swell_media.git
-  revision: 868689ce253966403e9039c872874ea95e37b0df
-  branch: refact
+PATH
+  remote: ../../engines/swell_media
   specs:
     swell_media (0.0.1)
       acts-as-taggable-array-on
@@ -28,7 +26,7 @@ GIT
       staccato
 
 GEM
-  remote: https://rubygems.org/
+  remote: http://rubygems.org/
   specs:
     CFPropertyList (2.3.3)
     actionmailer (4.2.3)

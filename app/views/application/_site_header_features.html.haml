@@ -7,7 +7,7 @@
 				%img{:alt => media.title, :src => media.avatar_url(:featured)}/
 				.item-caption
 					.caption-description
-						%a.caption-cat-links{:href => main_app.category_path(media.category.slug)}=media.category.name
+						%a.caption-cat-links{:href => swell_media.category_path(media.category.slug)}=media.category.name
 						%span.caption-title
 							%a.caption-title-link{:href => media.url}=media.title
 							%a.button.caption-more-link{:href => media.url} Read More
