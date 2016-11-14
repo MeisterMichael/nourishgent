@@ -26,7 +26,7 @@ PATH
       staccato
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     CFPropertyList (2.3.3)
     actionmailer (4.2.3)
