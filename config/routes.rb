@@ -58,7 +58,6 @@ Rails.application.routes.draw do
 	match '/422', to: 'errors#unprocessable', via: :all
 	match '/500', to: 'errors#internal_server_error', via: :all
 
-	resources :categories, only: [:show]
 
 	get '/about' => 'swell_media/static#about', as: 'about'
 

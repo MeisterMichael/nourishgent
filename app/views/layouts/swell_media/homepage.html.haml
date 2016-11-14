@@ -10,6 +10,7 @@
 		= render 'application/header_styles'
 		= render 'application/header_scripts'
 	%body.home.blog
+		= render 'application/flash'
 		#page.site
 			- cache( 'application/site_header_features' ) do
 				= render 'application/site_header_features', args: {}
@@ -19,7 +20,6 @@
 			#content.site-content
 				#primary.content-area
 					%main#main.site-main{:role => "main"}
-						= render 'application/flash'
 						.container
 							.row
 								/ article
