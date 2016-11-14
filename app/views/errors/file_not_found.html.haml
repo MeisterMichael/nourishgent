@@ -24,7 +24,7 @@
 									%h2.widget-title
 										%span Tags
 									.tagcloud
-										- SwellMedia::Media.limit(7).tags_cloud{ merge(SwellMedia::Article.published).limit(nil) }.each do |tag,count|
+										- SwellMedia::Article.published.media_tag_cloud( limit: 7 ).each do |tag,count|
 											%a{:href => swell_media.category_path( :all, tag: tag ) }
 												= tag
 												%span=count
