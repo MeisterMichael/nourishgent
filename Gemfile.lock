@@ -1,5 +1,7 @@
-PATH
-  remote: ../../engines/swell_media
+GIT
+  remote: git://github.com/playswell/swell_media.git
+  revision: f0153437d5efc70aee8704e8cef32cd193c61dcd
+  branch: refact
   specs:
     swell_media (0.0.1)
       acts-as-taggable-array-on
