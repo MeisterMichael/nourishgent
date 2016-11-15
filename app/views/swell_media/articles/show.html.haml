@@ -31,7 +31,7 @@
 							.entry-featured-image
 								%img{:alt => @media.avatar_caption || @media.title, :src => featured_image}/
 							/ .entry-featured-image
-						.entry-content
+						.entry-content.fr-view
 							= raw @media.content
 						/ .entry-content
 						%footer.entry-footer
@@ -246,35 +246,5 @@
 			/ .col-md-8
 		/ .row
 	/ .container
-	-# .single-post-w
-		%h1.post-title
-			= @media.title
-		%p.post-info
-			
-			%span.info-item
-				by
-				%a{href: articles_path( by: @media.user_id )}
-					= @media.user.avatar_tag( width: 20 )
-					= @media.user
-			%span.info-item
-				= @media.publish_at.strftime('%B %e, %Y')
-			- if @media.tags.present?
-				%span.info-item
-					Tagged:
-					- @media.tags.each do |tag|
-						%a.post-tag{ href: browse_path( :all, tags: [tag] ) }
-							%span.label.label-info
-								= tag.name
-		- if @media.avatar.present?
-			.post-avatar{ style: 'text-align:center;' }
-				= image_tag @media.avatar
-
-		.post-content
-			= raw @media.content
-
-	- if @media.is_commentable?
-		%section#comments
-			=# render 'application/fb_comments'
-
 
 
