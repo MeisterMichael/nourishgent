@@ -11,8 +11,7 @@
 		= render 'application/header_scripts'
 	%body.single.single-post
 		#page.site
-			- cache( 'application/site_header' ) do
-				= render 'application/site_header'
+			= render 'application/site_header'
 			/ content
 			#content.site-content
 				#primary.content-area

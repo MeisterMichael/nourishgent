@@ -14,8 +14,7 @@
 		#page.site
 			- cache( 'application/site_header_features' ) do
 				= render 'application/site_header_features', args: {}
-			- cache( 'application/site_header' ) do
-				= render 'application/site_header'
+			= render 'application/site_header'
 			/ content
 			#content.site-content
 				#primary.content-area
