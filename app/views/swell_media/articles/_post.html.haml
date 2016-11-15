@@ -2,11 +2,11 @@
 	- if (args[:class] || '').include?('first-post') && media.cover_path
 		.entry-featured-image
 			%a{ :href => media.url }
-				%img{:alt => media.title, :src => media.cover_path, 'data-pin-description' => media.title, 'data-pin-media' => (media.avatar_url(:pinterest) || media.avatar_url(:featured) || media.cover_path) }/
+				%img{:alt => media.title, :src => media.cover_path, 'data-pin-description' => (media.description || media.title), 'data-pin-media' => (media.avatar_url(:pinterest) || media.avatar_url(:featured) || media.cover_path) }/
 	- elsif media.avatar.present?
 		.entry-featured-image
 			%a{ :href => media.url }
-				%img{:alt => media.title, :src => media.avatar, 'data-pin-description' => media.title, 'data-pin-media' => (media.avatar_url(:pinterest) || media.avatar_url(:featured) || media.avatar) }/
+				%img{:alt => media.title, :src => media.avatar, 'data-pin-description' => (media.description || media.title), 'data-pin-media' => (media.avatar_url(:pinterest) || media.avatar_url(:featured) || media.avatar) }/
 	/ .entry-featured-image
 	.entry-area
 		.entry-header

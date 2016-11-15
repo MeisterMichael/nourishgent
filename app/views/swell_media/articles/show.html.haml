@@ -29,7 +29,7 @@
 						/ .entry-header
 						- if (featured_image = (@media.cover_path || @media.avatar)).present?
 							.entry-featured-image
-								%img{:alt => @media.avatar_caption || @media.title, :src => featured_image}/
+								%img{:alt => @media.avatar_caption || @media.title, :src => featured_image, 'data-pin-description' => (@media.description || @media.title), 'data-pin-media' => (@media.avatar_url(:pinterest) || @media.avatar_url(:featured) || featured_image)}/
 							/ .entry-featured-image
 						.entry-content.fr-view
 							= raw @media.content

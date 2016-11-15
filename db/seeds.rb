@@ -52,7 +52,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 </p>
 HTML
 description = 'This recipe gives you all the satisfaction of a nice bowl of instant ramen, but with a good portion of veggies and nutritious protein rich broth.'
-article = SwellMedia::Article.create( user: admin_user, publish_at: 2.week.ago, title: 'Veggie Ramen', subtitle: '', description: description, content: content, category: food, avatar: 'http://cdn1.nourishgent.com/blog/zoodles_350x350.jpg', cover_path: 'http://cdn1.nourishgent.com/blog/zoodles_1200x800.jpg', avatar_urls: { featured: 'http://cdn1.nourishgent.com/blog/zoodles_320x450.jpg' }, tags: ['Recipies','KidApproved','Nutritious'], featured: 2 )
+article = SwellMedia::Article.create( user: admin_user, publish_at: 2.week.ago, title: "Ramen, Zoodle Style", subtitle: '', description: description, content: content, category: food, avatar: 'http://cdn1.nourishgent.com/blog/zoodles_350x350.jpg', cover_path: 'http://cdn1.nourishgent.com/blog/zoodles_1200x800.jpg', avatar_urls: { featured: 'http://cdn1.nourishgent.com/blog/zoodles_320x450.jpg' }, tags: ['Recipies','KidApproved','Nutritious', 'NutFree'], featured: 2 )
 puts article.url
 
 
@@ -146,5 +146,5 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
 </p>
 HTML
 description = 'This superfood cereal recipe packs a nutritionally dense punch of go-get-\'em fuel to start your day.'
-article = SwellMedia::Article.create( user: admin_user, publish_at: 1.minute.ago, title: 'Superfood Cereal', subtitle: '', description: description, content: content, category: food, avatar: 'http://cdn1.nourishgent.com/blog/chia_pudding_350x350.jpg', cover_path: 'http://cdn1.nourishgent.com/blog/chia_pudding_1200x800.jpg', avatar_urls: { featured: 'http://cdn1.nourishgent.com/blog/chia_pudding_320x450.jpg' }, tags: ['Recipies','Superfood','ChiaSeeds','KidApproved','Nutritious'] )
+article = SwellMedia::Article.create( user: admin_user, publish_at: 1.minute.ago, title: 'Superfood Cereal', subtitle: '', description: description, content: content, category: food, avatar: 'http://cdn1.nourishgent.com/blog/chia_pudding_350x350.jpg', cover_path: 'http://cdn1.nourishgent.com/blog/chia_pudding_1200x800.jpg', avatar_urls: { featured: 'http://cdn1.nourishgent.com/blog/chia_pudding_320x450.jpg' }, tags: ['Recipies','Superfood','ChiaSeeds','KidApproved','Nutritious', 'NutFree'] )
 puts article.url
