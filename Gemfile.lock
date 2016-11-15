@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/playswell/swell_media.git
-  revision: 75e7aadb5ed056cd9801b233dbc1f10ee716c212
+  revision: 8ec7fc499ba3f6b893964c828121b6e75f8f1557
   branch: refact
   specs:
     swell_media (0.0.1)
