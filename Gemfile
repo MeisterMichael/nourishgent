@@ -32,6 +32,7 @@ gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'carrierwave'
 gem 'newrelic_rpm'
 
 # dev

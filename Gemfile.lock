@@ -1,12 +1,13 @@
 GIT
   remote: git://github.com/playswell/swell_media.git
-  revision: f0153437d5efc70aee8704e8cef32cd193c61dcd
+  revision: 75e7aadb5ed056cd9801b233dbc1f10ee716c212
   branch: refact
   specs:
     swell_media (0.0.1)
       acts-as-taggable-array-on
       awesome_nested_set (~> 3.0.2)
       browser
+      carrierwave
       carrierwave_direct
       coffee-rails (~> 4.1.0)
       devise
@@ -400,6 +401,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  carrierwave
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
