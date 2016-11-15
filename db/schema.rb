@@ -141,9 +141,12 @@ ActiveRecord::Schema.define(version: 20161111231500) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "score",                    default: 1.0
+    t.integer  "featured",                 default: 0
   end
 
   add_index "media", ["category_id"], name: "index_media_on_category_id", using: :btree
+  add_index "media", ["featured", "category_id", "status", "publish_at", "score"], name: "index_media_on_featured_and_category_and_status_and_publish", using: :btree
+  add_index "media", ["featured", "status", "publish_at", "score"], name: "index_media_on_featured_and_status_and_publish", using: :btree
   add_index "media", ["managed_by_id"], name: "index_media_on_managed_by_id", using: :btree
   add_index "media", ["public_id"], name: "index_media_on_public_id", using: :btree
   add_index "media", ["score", "category_id", "status", "publish_at"], name: "index_media_on_score_and_category_id_and_status_and_publish_at", using: :btree

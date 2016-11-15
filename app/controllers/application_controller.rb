@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 	protected
 	def featured_results
 
-		@featured_results = SwellMedia::Article.published.order(publish_at: :desc).limit(6)
+		@featured_results = SwellMedia::Article.published.where('featured > 0').order(featured: :desc, score: :desc, publish_at: :desc).limit(6)
 		@featured_results.where( id: ENV['FEATURED_RESULTS'].split(',').collect{|str| str.strip.to_i } ) if ENV['FEATURED_RESULTS'].present?
 
 	end

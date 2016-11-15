@@ -11,10 +11,10 @@ if ENV['FOG_DIRECTORY'] && defined?( CarrierWave )
 		# see https://github.com/jnicklas/carrierwave#using-amazon-s3
 		# for more optional configuration
 
-		config.validate_unique_filename = false        # defaults to true
-		config.validate_filename_format = false        # defaults to true
-		config.validate_remote_net_url_format = false  # defaults to true
-		config.cache_dir = "#{Rails.root}/tmp/uploads"
+		# config.validate_unique_filename = false        # defaults to true
+		# config.validate_filename_format = false        # defaults to true
+		# config.validate_remote_net_url_format = false  # defaults to true
+		# config.cache_dir = "#{Rails.root}/tmp/uploads"
 		#config.fog_public     = true
 	end
 end

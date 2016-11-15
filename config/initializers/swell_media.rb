@@ -4,6 +4,7 @@ SwellMedia.configure do |config|
 	config.registered_media_types = [ 'SwellMedia::Article', 'SwellMedia::Page' ]
 	config.app_name = 'NourishGent'
 	config.app_host = ENV['APP_DOMAIN'] || 'localhost:3000'
+	config.article_avatars = ['featured']
 	config.asset_host = ENV['ASSET_HOST']
 	config.app_description = 'Nourishing life, health and growth'
 	config.app_logo = 'https://media.licdn.com/media/p/1/000/27f/2a3/36f3707.jpg'
