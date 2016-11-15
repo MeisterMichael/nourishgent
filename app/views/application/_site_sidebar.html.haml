@@ -14,7 +14,7 @@
 			%span About
 		.about-author-container
 			.author-avatar
-				%img{:alt => User.me.full_name, :src => User.me.avatar_url}/
+				%img{:alt => User.me.full_name, :src => User.me.avatar_url, 'data-pin-nopin' => 1 }/
 			.author-info
 				%p=User.me.bio
 			-# .author-signature{:style => "background-image: url('#{image_path("theme/img/astrif-signature.png")}');"}
@@ -61,7 +61,7 @@
 						%a.popular-entry-thumbnail{:href => popular_media.url}
 							%img{:alt => popular_media.title, :src => popular_media.avatar}/
 						%span.popular-entry-title
-							%a.popular-entry-title-link{:href => popular_media.avatar, :rel => "bookmark"}=popular_media.title
+							%a.popular-entry-title-link{:href => popular_media.url, :rel => "bookmark"}=popular_media.title
 							%span.popular-entry-date=popular_media.publish_at.strftime('%B %e, %Y')
 		/ .astrif_widget_popular_entries
 	-#

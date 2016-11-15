@@ -8,7 +8,7 @@
 						%h1.entry-title About Me
 					/ .entry-header
 					.entry-content
-						%img.img-responsive.aligncenter{:src => (User.me.avatar_url( size: :large ) || User.me.avatar_url)}/
+						%img.img-responsive.aligncenter{ :src => (User.me.avatar_url( size: :large ) || User.me.avatar_url), 'data-pin-nopin' => 1 }/
 						%p.text-center
 							Hello I’m
 							= succeed "." do
