@@ -43,21 +43,8 @@
 								/ .tags-links
 							%span.share-links
 								%span Share this
-								%a.icon-facebook{:href => ""}
-									%i.fa.fa-facebook
-									Facebook
-								%a.icon-twitter{:href => ""}
-									%i.fa.fa-twitter
-									Twitter
-								%a.icon-google-plus{:href => ""}
-									%i.fa.fa-google-plus
-									Google+
-								%a.icon-pinterest{:href => ""}
-									%i.fa.fa-pinterest
-									Pinterest
-								%a.icon-linkedin{:href => ""}
-									%i.fa.fa-linkedin
-									LinkedIn
+								= render_shareable( :static_link => true, :url => @media.url, :title => @media.title, :description => @media.description, :text => (@media.description || @media.title), :hashtags => @media.tags.join(' #'), :button_only => true, :buttons => %w( facebook twitter google_plus pinterest linkedin ), :media => (@media.avatar_url(:pinterest) || @media.avatar_url(:featured) || @media.url) )
+
 							/ .share-links
 						/ .entry-footer
 					/ .post
