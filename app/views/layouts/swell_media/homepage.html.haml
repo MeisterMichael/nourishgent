@@ -12,7 +12,8 @@
 	%body.home.blog
 		= render 'application/flash'
 		#page.site
-			= render 'application/site_header_features', args: {}
+			- cache( 'application/site_header_features', expires_in: 1.hour ) do
+				= render 'application/site_header_features', args: {}
 			= render 'application/site_header'
 			/ content
 			#content.site-content
