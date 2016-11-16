@@ -11,7 +11,7 @@ SitemapGenerator::Sitemap.default_host = "#{SwellMedia.default_protocol}://#{Swe
 SitemapGenerator::Sitemap.public_path = 'tmp/'
 
 #SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new #
-SitemapGenerator::Sitemap.sitemaps_host = ENV['ASSET_HOST'] || "http://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com/"
+SitemapGenerator::Sitemap.sitemaps_host = "#{ENV['ASSET_HOST'] || "http://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"}/"
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 
 SitemapGenerator::Sitemap.create do
