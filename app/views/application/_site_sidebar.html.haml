@@ -85,7 +85,7 @@
 		%h2.widget-title
 			%span Categories
 		%ul
-			- SwellMedia::Category.all.order( slug: :asc ).each do |category|
+			- SwellMedia::Category.active.order( '(seq IS NOT NULL) DESC', seq: :asc, slug: :asc ).each do |category|
 				%li
 					%a{:href => swell_media.category_path( category.slug )}=category.name
 	/ .widget_categories
