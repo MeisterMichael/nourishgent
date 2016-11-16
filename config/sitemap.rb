@@ -25,7 +25,7 @@ SitemapGenerator::Sitemap.create do
 	end
 
 	SwellMedia::Article.published.find_each do |article|
-		add "#{article.path}", lastmod: article.updated_at, priority: => 0.9
+		add "#{article.path}", lastmod: article.updated_at, priority: 0.9
 	end
 
 	SwellMedia::Page.published.find_each do |page|
