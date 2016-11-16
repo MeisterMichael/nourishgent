@@ -19,7 +19,7 @@
 				/ .posted-on
 				%span.entry-cat
 					%span.cat-link
-						%a{:href => swell_media.category_path(media.category.slug)} Cook
+						%a{:href => swell_media.category_path(media.category.slug)}=media.category.name
 				/ .entry-cat
 				-# %span.entry-like
 					%a{:href => ""}

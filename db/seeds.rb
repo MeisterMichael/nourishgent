@@ -47,7 +47,7 @@ content = <<HTML
 
 HTML
 description = 'This recipe gives you all the satisfaction of a nice bowl of instant ramen, but with a good portion of veggies and nutritious protein rich broth.'
-article = SwellMedia::Article.create( user: admin_user, publish_at: 2.week.ago, title: "Ramen, Zoodle Style", subtitle: '', description: description, content: content, category: food, avatar: 'http://cdn1.nourishgent.com/blog/zoodles_350x350.jpg', cover_path: 'http://cdn1.nourishgent.com/blog/zoodles_1200x800.jpg', avatar_urls: { featured: 'http://cdn1.nourishgent.com/blog/zoodles_320x450.jpg' }, tags: ['Recipies','KidApproved','Nutritious', 'NutFree', 'Zoodles', 'Noodles', 'Ramen'], featured: 2 )
+article = SwellMedia::Article.create( user: admin_user, publish_at: 2.week.ago, title: "Ramen, Zoodle Style", subtitle: '', description: description, content: content, category: food, avatar: 'http://cdn1.nourishgent.com/blog/zoodles_350x350.jpg', cover_path: 'http://cdn1.nourishgent.com/blog/zoodles_1200x800.jpg', avatar_urls: { featured: 'http://cdn1.nourishgent.com/blog/zoodles_320x450.jpg' }, tags: ['Recipies','KidApproved','Nutritious', 'NutFree', 'Zoodles', 'Noodles', 'Ramen'], featured: 3 )
 puts article.url
 
 
@@ -80,7 +80,7 @@ Also, if you are brave this is a fun way for your preschooler to help you in the
 <p>
 HTML
 description = "Save money and enjoy fresh pomegranate seeds, with these 5 steps."
-article = SwellMedia::Article.create( user: admin_user, publish_at: 1.week.ago, title: 'Harvesting Pomegranate Seeds', subtitle: '', description: description, content: content, category: hacks, avatar: 'http://cdn1.nourishgent.com/blog/pom_350x350.jpg', cover_path: 'http://cdn1.nourishgent.com/blog/pom_1200x800.jpg', avatar_urls: { featured: 'http://cdn1.nourishgent.com/blog/pom_320x450.jpg' }, tags: ['Fruit', 'Pomegranate', 'KidApproved', 'Thifty'], featured: 3 )
+article = SwellMedia::Article.create( user: admin_user, publish_at: 1.week.ago, title: 'Harvesting Pomegranate Seeds', subtitle: '', description: description, content: content, category: hacks, avatar: 'http://cdn1.nourishgent.com/blog/pom_350x350.jpg', cover_path: 'http://cdn1.nourishgent.com/blog/pom_1200x800.jpg', avatar_urls: { featured: 'http://cdn1.nourishgent.com/blog/pom_320x450.jpg' }, tags: ['Fruit', 'Pomegranate', 'KidApproved', 'Thifty'], featured: 4 )
 puts article.url
 
 
@@ -127,7 +127,7 @@ Tip: For a more smooth pudding grind the chia seeds until they reach a ground pe
 </p>
 HTML
 description = "A quick high protein, superfood pudding for a delicious chocolatey breakfast or desert."
-article = SwellMedia::Article.create( user: admin_user, publish_at: 4.week.ago, title: '2 Ingredient Chocolate Superfood Pudding', subtitle: '', description: description, content: content, category: food, avatar: 'http://cdn1.nourishgent.com/blog/chia_pudding_350x350.jpg', cover_path: 'http://cdn1.nourishgent.com/blog/chia_pudding_1200x800.jpg', avatar_urls: { featured: 'http://cdn1.nourishgent.com/blog/chia_pudding_320x450.jpg' }, tags: ['Recipies','Superfood','Chocolate','ChiaSeeds','KidApproved','Nutritious'], featured: 4 )
+article = SwellMedia::Article.create( user: admin_user, publish_at: 4.week.ago, title: '2 Ingredient Chocolate Superfood Pudding', subtitle: '', description: description, content: content, category: food, avatar: 'http://cdn1.nourishgent.com/blog/chia_pudding_350x350.jpg', cover_path: 'http://cdn1.nourishgent.com/blog/chia_pudding_1200x800.jpg', avatar_urls: { featured: 'http://cdn1.nourishgent.com/blog/chia_pudding_320x450.jpg' }, tags: ['Recipies','Superfood','Chocolate','ChiaSeeds','KidApproved','Nutritious'], featured: 5 )
 puts article.url
 
 
@@ -135,6 +135,9 @@ puts article.url
 content = <<HTML
 <p>
 About 7 years ago I started on a quest to rid myself of sugar, and if you have ever tried this you will know how hard it is.  Just pick up a random can or box at your grocery store, look at the ingredients and you will see what I mean, especially in the cereal isle.  One of the things I wanted to replace was my easy morning bowl of cereal, so I started scouring health food stores, and months later stumbled upon a great seed cereal Qi'a.  The ingredients were fairly simple, chia seeds, hemp hearts and buckwheat, and 1 serving (only 2 tbsp) had 6g of protein, 4g of fiber, healthy fats and best of all ZERO sugar.  An added bonus being that chia seeds expand to up to 16 times their size when added to water, so even a small amount of this nutritionally dense mixture will not only give you long lasting energy but make you feel full.
+</p>
+<p>
+Another interesting tid bit about chia seeds, is they are rich in many electrolytes (nutrients your body expends during exercise) as well as protein, and when scientifically tested along side sports drinks, chia seeds prove equal in supporting endurance.
 </p>
 <p>
 I ate the stuff on and off for years, with milk/yogurt and some fruit, all the while encountering chia seeds in more and more things.  Chia juice, chia kombucha,...  Eventually I started experimenting with them, using small expensive bags I purchased from health food stores.  However over the last few years, with a Costco membership, I have been able to buy chia and hemp hearts relatively inexpensively, so I decided to try my hand at blending my own version, for a more cost effective result.  And so the experimenting began, playing with proportions and trying/removing new ingredients, eventually leading to a personal favorite recipe which I will now share with you.
@@ -157,5 +160,5 @@ Makes about 16 servings (2 tbsps each)
 </p>
 HTML
 description = 'This superfood cereal recipe packs a nutritionally dense punch of go-get-\'em fuel to start your day.'
-article = SwellMedia::Article.create( user: admin_user, publish_at: 1.minute.ago, title: 'Superfood Cereal', subtitle: '', description: description, content: content, category: food, avatar: 'http://cdn1.nourishgent.com/blog/chia_pudding_350x350.jpg', cover_path: 'http://cdn1.nourishgent.com/blog/chia_pudding_1200x800.jpg', avatar_urls: { featured: 'http://cdn1.nourishgent.com/blog/chia_pudding_320x450.jpg' }, tags: ['Recipies','Superfood','ChiaSeeds','KidApproved','Nutritious', 'NutFree'] )
+article = SwellMedia::Article.create( user: admin_user, publish_at: 1.minute.ago, title: 'Superfood Cereal', subtitle: '', description: description, content: content, category: food, avatar: 'http://cdn1.nourishgent.com/blog/chia_cereal_350x350.jpg', cover_path: 'http://cdn1.nourishgent.com/blog/chia_cereal_1200x800.jpg', avatar_urls: { featured: 'http://cdn1.nourishgent.com/blog/chia_cereal_320x450.jpg' }, tags: ['Recipies','Superfood','ChiaSeeds','KidApproved','Nutritious', 'NutFree'], featured: 2 )
 puts article.url

@@ -43,7 +43,7 @@
 								/ .tags-links
 							%span.share-links
 								%span Share this
-								= render_shareable( :static_link => true, :url => @media.url, :title => @media.title, :description => @media.description, :text => (@media.description || @media.title), :hashtags => @media.tags.join(' #'), :button_only => true, :buttons => %w( facebook twitter google_plus pinterest linkedin ), :media => (@media.avatar_url(:pinterest) || @media.avatar_url(:featured) || @media.url) )
+								= render_shareable( :static_link => true, :url => @media.url, :title => @media.title, :description => @media.description, :text => (@media.description || @media.title), :hashtags => @media.tags.join(' #'), :button_only => true, :buttons => %w( facebook twitter google_plus pinterest linkedin ), :media => ( @media.cover_path || @media.avatar ), :pinterest => { media: (@media.avatar_url(:pinterest) || @media.avatar_url(:featured) || @media.url) } )
 
 							/ .share-links
 						/ .entry-footer
