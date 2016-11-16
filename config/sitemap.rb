@@ -1,8 +1,8 @@
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new(
-		fog_provider: 'AWS',
-		:aws_access_key_id      => ENV['AMZN_ASOC_KEY'],       # required
-		:aws_secret_access_key  => ENV['AMZN_ASOC_SECRET'],     # required
-		fog_directory: ENV['FOG_DIRECTORY']
+		:fog_provider						=> 'AWS',                    # required
+		:aws_access_key_id      => ENV['AMZN_ASOC_KEY'],     # required
+		:aws_secret_access_key  => ENV['AMZN_ASOC_SECRET'],  # required
+		:fog_directory					=> ENV['FOG_DIRECTORY'],
 )
 
 
