@@ -51,7 +51,7 @@
 					%nav.navigation.post-navigation{:role => "navigation"}
 						%h2.screen-reader-text Post navigation
 						.nav-links
-							- if (previous_media = SwellMedia::Article.where('publish_at < ?', @media.publish_at).order(id: :desc).first).present?
+							- if (previous_media = SwellMedia::Article.published.where('publish_at < ?', @media.publish_at).order(id: :desc).first).present?
 								.nav-previous
 									%a.image-link{:href => previous_media.url}
 										%img{:src => previous_media.avatar }/
@@ -64,7 +64,7 @@
 									%span Previous Post
 									%a.prev-link{:href => @media.url, :rel => "prev"}=@media.title
 
-							- if (next_media = SwellMedia::Article.where('publish_at > ?', @media.publish_at).order(id: :asc).first).present?
+							- if (next_media = SwellMedia::Article.published.where('publish_at > ?', @media.publish_at).order(id: :asc).first).present?
 								.nav-next
 									%a.image-link{:href => next_media.url}
 										%img{:src => next_media.avatar }/
