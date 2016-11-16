@@ -35,6 +35,7 @@ gem 'unicorn'
 gem 'carrierwave'
 gem 'newrelic_rpm'
 gem 'shareable'
+gem 'sitemap_generator'
 
 # dev
 # gem 'swell_media', path: '../../engines/swell_media'

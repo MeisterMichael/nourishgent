@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/playswell/swell_media.git
-  revision: 16b706dc78bc7e15b58a36bde3306e9e23e6f13e
+  revision: 8c9546fb97330364a8410b74fa6310deeef2354d
   branch: refact
   specs:
     swell_media (0.0.1)
@@ -414,6 +414,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   shareable
+  sitemap_generator
   spring
   swell_media!
   turbolinks
