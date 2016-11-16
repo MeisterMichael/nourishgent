@@ -44,12 +44,7 @@ puts article.url
 
 
 content = <<HTML
-<p>
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-</p>
-<p>
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-</p>
+
 HTML
 description = 'This recipe gives you all the satisfaction of a nice bowl of instant ramen, but with a good portion of veggies and nutritious protein rich broth.'
 article = SwellMedia::Article.create( user: admin_user, publish_at: 2.week.ago, title: "Ramen, Zoodle Style", subtitle: '', description: description, content: content, category: food, avatar: 'http://cdn1.nourishgent.com/blog/zoodles_350x350.jpg', cover_path: 'http://cdn1.nourishgent.com/blog/zoodles_1200x800.jpg', avatar_urls: { featured: 'http://cdn1.nourishgent.com/blog/zoodles_320x450.jpg' }, tags: ['Recipies','KidApproved','Nutritious', 'NutFree', 'Zoodles', 'Noodles', 'Ramen'], featured: 2 )
@@ -139,10 +134,26 @@ puts article.url
 
 content = <<HTML
 <p>
-Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+About 7 years ago I started on a quest to rid myself of sugar, and if you have ever tried this you will know how hard it is.  Just pick up a random can or box at your grocery store, look at the ingredients and you will see what I mean, especially in the cereal isle.  One of the things I wanted to replace was my easy morning bowl of cereal, so I started scouring health food stores, and months later stumbled upon a great seed cereal Qi'a.  The ingredients were fairly simple, chia seeds, hemp hearts and buckwheat, and 1 serving (only 2 tbsp) had 6g of protein, 4g of fiber, healthy fats and best of all ZERO sugar.  An added bonus being that chia seeds expand to up to 16 times their size when added to water, so even a small amount of this nutritionally dense mixture will not only give you long lasting energy but make you feel full.
 </p>
 <p>
-The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+I ate the stuff on and off for years, with milk/yogurt and some fruit, all the while encountering chia seeds in more and more things.  Chia juice, chia kombucha,...  Eventually I started experimenting with them, using small expensive bags I purchased from health food stores.  However over the last few years, with a Costco membership, I have been able to buy chia and hemp hearts relatively inexpensively, so I decided to try my hand at blending my own version, for a more cost effective result.  And so the experimenting began, playing with proportions and trying/removing new ingredients, eventually leading to a personal favorite recipe which I will now share with you.
+</p>
+<p>
+Ingredients:
+<ul>
+	<li>1 cup chia seeds</li>
+	<li>1/4 cup hemp hearts</li>
+	<li>1/4 cup toasted buckwheat</li>
+	<li>1/4 cup toasted coconut chips, unsweetened</li>
+	<li>3 tbsps cocoa nibs</li>
+</ul>
+</p>
+<p>
+Blend ingredients and serve with 1/4 cup of greek yogurt.  For an added bit of citrus and sweet I recommend 1/3 cup of fresh or canned pineapple.
+</p>
+<p>
+Makes about 16 servings (2 tbsps each)
 </p>
 HTML
 description = 'This superfood cereal recipe packs a nutritionally dense punch of go-get-\'em fuel to start your day.'
