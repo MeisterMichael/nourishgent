@@ -11,10 +11,11 @@ SitemapGenerator::Sitemap.default_host = "#{SwellMedia.default_protocol}://#{Swe
 SitemapGenerator::Sitemap.public_path = 'tmp/'
 
 #SitemapGenerator::Sitemap.adapter = SitemapGenerator::S3Adapter.new #
-SitemapGenerator::Sitemap.sitemaps_host = "#{ENV['ASSET_HOST'] || "http://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"}/"
+SitemapGenerator::Sitemap.sitemaps_host = "http://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com/"
 SitemapGenerator::Sitemap.sitemaps_path = 'sitemaps/'
 
 SitemapGenerator::Sitemap.create do
+
 	add '/'
 	add '/about'
 	add '/categories/all', lastmod: SwellMedia::Article.published.order(publish_at: :desc, id: :desc).first.try(:publish_at)
@@ -31,6 +32,5 @@ SitemapGenerator::Sitemap.create do
 	SwellMedia::Page.published.find_each do |page|
 		add "#{page.path}", lastmod: page.updated_at
 	end
-
 
 end
