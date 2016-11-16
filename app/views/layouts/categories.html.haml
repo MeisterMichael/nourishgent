@@ -17,7 +17,20 @@
 				#primary.content-area
 					%main#main.site-main{:role => "main"}
 						= render 'application/flash'
-						= yield
+						.container
+							.row
+								/ article
+								.col-md-8
+									.site-entry
+										= yield
+								/ .col-md-8
+								- cache( 'application/site_sidebar', expires_in: 1.hour ) do
+									/ sidebar
+									.col-md-4
+										= render 'application/site_sidebar'
+									/ .col-md-4
+							/ .row
+						/ .container
 					/ #main
 				/ #primary
 			/ #content

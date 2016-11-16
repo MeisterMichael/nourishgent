@@ -16,7 +16,7 @@
 			.author-avatar
 				%img{:alt => User.me.full_name, :src => User.me.avatar_url, 'data-pin-nopin' => 1 }/
 			.author-info
-				%p=User.me.bio
+				%p=User.me.short_bio
 			-# .author-signature{:style => "background-image: url('#{image_path("theme/img/astrif-signature.png")}');"}
 		/ .about-author-container
 	/ .astrif_widget_about

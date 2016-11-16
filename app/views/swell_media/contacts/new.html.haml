@@ -1,60 +1,61 @@
-.container
-	.row
-		/ article
-		.col-md-8.col-md-offset-2
-			.site-entry
-				%article.post.format-standard.hentry
-					.entry-header
-						%h1.entry-title Contact
-					/ .entry-header
-					.entry-content
-						= render 'application/social_icons', args: { class: 'text-center' }
-						%p.text-center Fill out the form below with some info about you and the question you want ask.
-						= form_for @contact, html: { class: 'form-horizontal' } do |f|
-							.form-group
-								.col-sm-6
-									= f.label :subject, 'Name'
-									= f.text_field :subject, class: 'form-control form-bordered'
-								.col-sm-6
-									= f.label :email
-									= f.text_field :email, class: 'form-control form-bordered'
-							.form-group
-								.col-sm-12
-									= f.label :message
-									= f.text_area :message, rows: 8, class: 'form-control form-bordered'
-							.form-group
-								.col-sm-12
-									%button{:type => "submit"} Submit
-						/ .form-horizontal
-					/ .entry-content
-				/ .post
-			/ .site-entry
-		/ .col-md-9
-	/ .row
-/ .container
+- cache( 'contacts#new' ) do
+	.container
+		.row
+			/ article
+			.col-md-8.col-md-offset-2
+				.site-entry
+					%article.post.format-standard.hentry
+						.entry-header
+							%h1.entry-title Contact
+						/ .entry-header
+						.entry-content
+							= render 'application/social_icons', args: { class: 'text-center' }
+							%p.text-center Fill out the form below with some info about you and the question you want ask.
+							= form_for @contact, html: { class: 'form-horizontal' } do |f|
+								.form-group
+									.col-sm-6
+										= f.label :subject, 'Name'
+										= f.text_field :subject, class: 'form-control form-bordered'
+									.col-sm-6
+										= f.label :email
+										= f.text_field :email, class: 'form-control form-bordered'
+								.form-group
+									.col-sm-12
+										= f.label :message
+										= f.text_area :message, rows: 8, class: 'form-control form-bordered'
+								.form-group
+									.col-sm-12
+										%button{:type => "submit"} Submit
+							/ .form-horizontal
+						/ .entry-content
+					/ .post
+				/ .site-entry
+			/ .col-md-9
+		/ .row
+	/ .container
 
--#.container
-	.row
-		.col-sm-8
+	-#.container
+		.row
+			.col-sm-8
 
-			%h3.headline.first-child
-				%span
-					Contact
-			%p
-				We'd love to hear from you!
+				%h3.headline.first-child
+					%span
+						Contact
+				%p
+					We'd love to hear from you!
 
-			= form_for @contact do |f|
-				.form-group
-					= f.label :email
-					= f.text_field :email, placeholder: 'Your Email', class: 'form-control'
-				.form-group
-					= f.label :subject
-					= f.text_field :subject, placeholder: 'Subject', class: 'form-control'
-				.form-group
-					= f.label :message
-					= f.text_area :message, rows: 3, class: 'form-control'
+				= form_for @contact do |f|
+					.form-group
+						= f.label :email
+						= f.text_field :email, placeholder: 'Your Email', class: 'form-control'
+					.form-group
+						= f.label :subject
+						= f.text_field :subject, placeholder: 'Subject', class: 'form-control'
+					.form-group
+						= f.label :message
+						= f.text_area :message, rows: 3, class: 'form-control'
 
-				= f.submit 'Send', class: 'btn btn-lg btn-red'
+					= f.submit 'Send', class: 'btn btn-lg btn-red'
 
 
-		.col-sm-4
+			.col-sm-4

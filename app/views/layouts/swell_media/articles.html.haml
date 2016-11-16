@@ -25,4 +25,5 @@
 				= render 'application/footer'
 		/ #page
 		/ jQuery (necessary for Bootstrap's JavaScript plugins)
-		= render 'application/footer_scripts'
+		- cache( 'application/footer_scripts' ) do
+			= render 'application/footer_scripts'

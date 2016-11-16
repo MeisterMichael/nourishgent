@@ -4,7 +4,7 @@ module SwellMedia
 		def about
 
 
-
+			render layout: 'swell_media/pages'
 		end
 
 		def home

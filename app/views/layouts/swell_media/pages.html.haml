@@ -17,16 +17,18 @@
 				#primary.content-area
 					%main#main.site-main{:role => "main"}
 						= render 'application/flash'
-						.container
+						= yield
+						-# .container
 							.row
 								/ article
 								.col-md-8
 									= yield
 								/ .col-md-8
-								/ sidebar
-								.col-md-4
-									= render 'application/site_sidebar'
-								/ .col-md-4
+								- cache( 'application/site_sidebar', expires_in: 1.hour ) do
+									/ sidebar
+									.col-md-4
+										= render 'application/site_sidebar'
+									/ .col-md-4
 							/ .row
 						/ .container
 					/ #main
@@ -35,5 +37,5 @@
 			- cache( 'application/footer' ) do
 				= render 'application/footer'
 		/ #page
-		/ jQuery (necessary for Bootstrap's JavaScript plugins)
-		= render 'application/footer_scripts'
+		- cache( 'application/footer_scripts' ) do
+			= render 'application/footer_scripts'
