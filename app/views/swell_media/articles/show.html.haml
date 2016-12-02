@@ -29,7 +29,7 @@
 						/ .entry-header
 						- if (featured_image = (@media.cover_path || @media.avatar)).present?
 							.entry-featured-image
-								%img{:alt => @media.avatar_caption || @media.title, :src => featured_image, 'data-pin-description' => (@media.description || @media.title), 'data-pin-media' => (@media.avatar_url(:pinterest) || @media.avatar_url(:featured) || featured_image)}/
+								%img{:alt => @media.avatar_caption || @media.title, :src => featured_image, 'data-pin-description' => sanitize(@media.description || @media.title), 'data-pin-media' => (@media.avatar_url(:pinterest) || @media.avatar_url(:featured) || featured_image)}/
 							/ .entry-featured-image
 						.entry-content.fr-view
 							= raw @media.content
@@ -43,7 +43,7 @@
 								/ .tags-links
 							%span.share-links
 								%span Share this
-								= render_shareable( :static_link => true, :url => @media.url, :title => @media.title, :description => @media.description, :text => (@media.description || @media.title), :hashtags => @media.tags.join(' #'), :button_only => true, :buttons => %w( facebook twitter google_plus pinterest linkedin ), :media => ( @media.cover_path || @media.avatar ), :pinterest => { media: (@media.avatar_url(:pinterest) || @media.avatar_url(:featured) || @media.url) } )
+								= render_shareable( :static_link => true, :url => @media.url, :title => @media.title, :description => sanitize(@media.description), :text => sanitize(@media.description || @media.title), :hashtags => @media.tags.join(' #'), :button_only => true, :buttons => %w( facebook twitter google_plus pinterest linkedin ), :media => ( @media.cover_path || @media.avatar ), :pinterest => { media: (@media.avatar_url(:pinterest) || @media.avatar_url(:featured) || @media.url) } )
 
 							/ .share-links
 						/ .entry-footer

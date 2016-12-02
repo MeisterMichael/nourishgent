@@ -29,7 +29,7 @@
 		/ .entry-header
 		.entry-content
 			%p
-				= raw (media.description || media.sanitized_content).truncate(255)
+				= sanitize(media.description || media.sanitized_content).truncate(255)
 				%a.more-link{:href => media.url }
 					%span.moretext Read more
 					%span.screen-reader-text How to make mak-nyuss baked potatoes stick recipes from Deanda
