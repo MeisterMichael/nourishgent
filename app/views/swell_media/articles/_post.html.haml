@@ -2,11 +2,11 @@
 	- if (args[:class] || '').include?('first-post') && media.cover_path
 		.entry-featured-image
 			%a{ :href => media.url }
-				%img{:alt => media.title, :src => media.cover_path, 'data-pin-description' => (media.description || media.title), 'data-pin-media' => (media.avatar_url(:pinterest) || media.avatar_url(:featured) || media.cover_path) }/
+				%img{:alt => media.title, :src => media.cover_path, 'data-pin-description' => sanitize(media.description || media.title), 'data-pin-media' => (media.avatar_url(:pinterest) || media.avatar_url(:featured) || media.cover_path) }/
 	- elsif media.avatar.present?
 		.entry-featured-image
 			%a{ :href => media.url }
-				%img{:alt => media.title, :src => media.avatar, 'data-pin-description' => (media.description || media.title), 'data-pin-media' => (media.avatar_url(:pinterest) || media.avatar_url(:featured) || media.avatar) }/
+				%img{:alt => media.title, :src => media.avatar, 'data-pin-description' => sanitize(media.description || media.title), 'data-pin-media' => (media.avatar_url(:pinterest) || media.avatar_url(:featured) || media.avatar) }/
 	/ .entry-featured-image
 	.entry-area
 		.entry-header
@@ -29,7 +29,7 @@
 		/ .entry-header
 		.entry-content
 			%p
-				= (media.description || media.sanitized_content).truncate(255)
+				= raw (media.description || media.sanitized_content).truncate(255)
 				%a.more-link{:href => media.url }
 					%span.moretext Read more
 					%span.screen-reader-text How to make mak-nyuss baked potatoes stick recipes from Deanda
