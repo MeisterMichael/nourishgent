@@ -43,7 +43,10 @@
 								/ .tags-links
 							%span.share-links
 								%span Share this
-								= render_shareable( :static_link => true, :url => @media.url, :title => @media.title, :description => sanitize(@media.description), :text => sanitize(@media.description || @media.title), :hashtags => @media.tags.join(' #'), :button_only => true, :buttons => %w( facebook twitter google_plus pinterest linkedin ), :media => ( @media.cover_path || @media.avatar ), :pinterest => { media: (@media.avatar_url(:pinterest) || @media.avatar_url(:featured) || @media.url) } )
+
+								/ Go to www.addthis.com/dashboard to customize your tools
+								.addthis_inline_share_toolbox
+								-# = render_shareable( :static_link => true, :url => @media.url, :title => @media.title, :description => sanitize(@media.description), :text => sanitize(@media.description || @media.title), :hashtags => @media.tags.join(' #'), :button_only => true, :buttons => %w( facebook twitter google_plus pinterest linkedin ), :media => ( @media.cover_path || @media.avatar ), :pinterest => { media: (@media.avatar_url(:pinterest) || @media.avatar_url(:featured) || @media.url) } )
 
 							/ .share-links
 						/ .entry-footer
@@ -87,8 +90,7 @@
 						.author-bio-description
 							%h4= @media.user.full_name || @media.user.name
 							%p= @media.user.short_bio
-							/ Go to www.addthis.com/dashboard to customize your tools
-							.addthis_inline_share_toolbox
+							= render 'application/social_icons', args: {}
 						/ .author-bio-description
 					/ entry-author-bio
 					.related-posts
@@ -111,7 +113,7 @@
 						/ .row
 					/ .related-posts
 					#comments.comments-area
-						.fb-comments{"data-href" => @media.url, "data-numposts" => "5"}
+						.fb-comments{"data-href" => @media.url, "data-width"=>"100%", "data-numposts" => "5"}
 					-# #comments.comments-area
 						.section-title
 							%h3 4 Comments
