@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/Groundswell/swell_media.git
-  revision: 9c1b70943f3a21293fee9685471368994ef5b8f2
+  revision: 8f4519bccff2cbb121537621877657db29b31a9e
   specs:
     swell_media (0.0.1)
       acts-as-taggable-array-on
