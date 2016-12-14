@@ -87,7 +87,8 @@
 						.author-bio-description
 							%h4= @media.user.full_name || @media.user.name
 							%p= @media.user.short_bio
-							= render 'application/social_icons', args: {}
+							/ Go to www.addthis.com/dashboard to customize your tools
+							.addthis_inline_share_toolbox
 						/ .author-bio-description
 					/ entry-author-bio
 					.related-posts
@@ -109,6 +110,8 @@
 								/ .col-md-3
 						/ .row
 					/ .related-posts
+					#comments.comments-area
+						.fb-comments{"data-href" => @media.url, "data-numposts" => "5"}
 					-# #comments.comments-area
 						.section-title
 							%h3 4 Comments
